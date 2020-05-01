@@ -7,6 +7,7 @@ class mainWindow(QMainWindow):
         super(mainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.showMaximized()
         self.ui.views.setCurrentIndex(0)
         self.ui.travel_button.clicked.connect(self.changePage)
 
