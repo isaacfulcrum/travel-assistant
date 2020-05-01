@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="Images">
+    <file>assets/plane_2.png</file>
+    <file>assets/plane.png</file>
+  </qresource>
+  <qresource prefix="Icons">
+    <file>assets/planeIcon.png</file>
+  </qresource>
+</RCC>
