@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.frame = QFrame(self.welcome)
         self.frame.setObjectName(u"frame")
-        self.frame.setCursor(QCursor(Qt.UpArrowCursor))
+        self.frame.setCursor(QCursor(Qt.ArrowCursor))
         self.frame.setLayoutDirection(Qt.LeftToRight)
         self.frame.setStyleSheet(u"QFrame \n"
 "{\n"
