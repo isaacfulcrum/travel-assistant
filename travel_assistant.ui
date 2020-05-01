@@ -17,6 +17,9 @@
    <iconset resource="travel_assistant_assets.qrc">
     <normaloff>:/Icons/assets/planeIcon.png</normaloff>:/Icons/assets/planeIcon.png</iconset>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
@@ -25,9 +28,18 @@
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
          <widget class="QFrame" name="frame">
+          <property name="cursor">
+           <cursorShape>UpArrowCursor</cursorShape>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
           <property name="styleSheet">
-           <string notr="true">QFrame {background-color: rgb(255, 85, 255);
-image: url(:/Images/assets/plane_2.png);}
+           <string notr="true">QFrame 
+{
+image: url(:/Images/assets/plane_vector.png);
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.1875, x2:1, y2:1, stop:0 rgba(49, 139, 180, 255), stop:1 rgba(0, 0, 0, 255));
+}
 
 
 </string>
@@ -39,41 +51,94 @@ image: url(:/Images/assets/plane_2.png);}
            <enum>QFrame::Raised</enum>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="1" column="1">
-            <widget class="QSplitter" name="splitter">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <widget class="QPushButton" name="pushButton_2">
-              <property name="maximumSize">
-               <size>
-                <width>200</width>
-                <height>100</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>News706 BT</family>
-                <pointsize>20</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>NEW TRIP</string>
-              </property>
-             </widget>
-            </widget>
-           </item>
            <item row="0" column="1">
             <spacer name="verticalSpacer">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
              <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
-               <height>40</height>
+               <height>250</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>248</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="travel_button">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>News706 BT</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	selection-background-color: rgb(85, 255, 255);
+	selection-color: rgb(170, 0, 0);
+
+}</string>
+             </property>
+             <property name="text">
+              <string>TRAVEL</string>
+             </property>
+             <property name="icon">
+              <iconset resource="travel_assistant_assets.qrc">
+               <normaloff>:/Icons/assets/planeIcon.png</normaloff>:/Icons/assets/planeIcon.png</iconset>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="default">
+              <bool>true</bool>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>278</width>
+               <height>20</height>
               </size>
              </property>
             </spacer>
@@ -83,7 +148,28 @@ image: url(:/Images/assets/plane_2.png);}
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2"/>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>News706 BT</family>
+            <pointsize>72</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>UwU</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
