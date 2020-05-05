@@ -94,17 +94,74 @@ class Ui_MainWindow(object):
         self.page_2.setObjectName(u"page_2")
         self.gridLayout_4 = QGridLayout(self.page_2)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label = QLabel(self.page_2)
+        self.frame_2 = QFrame(self.page_2)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.frame_2)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label = QLabel(self.frame_2)
         self.label.setObjectName(u"label")
         font1 = QFont()
         font1.setFamily(u"News706 BT")
-        font1.setPointSize(72)
+        font1.setPointSize(24)
         font1.setBold(True)
         font1.setWeight(75)
         self.label.setFont(font1)
         self.label.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addWidget(self.label, 0, 0, 1, 1)
+        self.verticalLayout.addWidget(self.label)
+
+        self.groupBox = QGroupBox(self.frame_2)
+        self.groupBox.setObjectName(u"groupBox")
+        self.gridLayout_5 = QGridLayout(self.groupBox)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout_5.addWidget(self.label_2, 0, 0, 1, 1)
+
+        self.lineEdit = QLineEdit(self.groupBox)
+        self.lineEdit.setObjectName(u"lineEdit")
+
+        self.gridLayout_5.addWidget(self.lineEdit, 0, 1, 1, 1)
+
+        self.label_3 = QLabel(self.groupBox)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout_5.addWidget(self.label_3, 1, 0, 1, 1)
+
+        self.comboBox = QComboBox(self.groupBox)
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.gridLayout_5.addWidget(self.comboBox, 1, 1, 1, 1)
+
+        self.label_4 = QLabel(self.groupBox)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout_5.addWidget(self.label_4, 1, 2, 1, 1)
+
+        self.comboBox_2 = QComboBox(self.groupBox)
+        self.comboBox_2.setObjectName(u"comboBox_2")
+
+        self.gridLayout_5.addWidget(self.comboBox_2, 1, 3, 1, 1)
+
+
+        self.verticalLayout.addWidget(self.groupBox)
+
+        self.graphicsView = QGraphicsView(self.frame_2)
+        self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setStyleSheet(u"QGraphicsView\n"
+"{\n"
+"	background-color: None;\n"
+"	border-image: url(:/Images/assets/worldmap.png);\n"
+"}\n"
+"")
+
+        self.verticalLayout.addWidget(self.graphicsView)
+
+
+        self.gridLayout_4.addWidget(self.frame_2, 0, 0, 1, 1)
 
         self.views.addWidget(self.page_2)
 
@@ -121,6 +178,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.views.setCurrentIndex(1)
         self.travel_button.setDefault(True)
 
 
@@ -130,6 +188,10 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Travel Assistant", None))
         self.travel_button.setText(QCoreApplication.translate("MainWindow", u"TRAVEL", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"UwU", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"GroupBox", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Name:", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Departure:", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Arrival:", None))
     # retranslateUi
 
