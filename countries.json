@@ -1,0 +1,35 @@
+[
+     {
+          "name": "Mexico",
+          "starsClothes": 3,
+          "starsFood": 5,
+          "starsTourism": 4,
+          "cost": 465,
+          "coordinates": [
+               50,
+               35
+          ]
+     },
+     {
+          "name": "Argentina",
+          "starsClothes": 2,
+          "starsFood": 3,
+          "starsTourism": 2,
+          "cost": 1600,
+          "coordinates": [
+               80,
+               92
+          ]
+     },
+     {
+          "name": "Brasil",
+          "starsClothes": 3,
+          "starsFood": 3,
+          "starsTourism": 4,
+          "cost": 2547,
+          "coordinates": [
+               90,
+               66
+          ]
+     },
+]
