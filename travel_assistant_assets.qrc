@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="Images">
+    <file>assets/worldmap.jpg</file>
     <file>assets/plane_vector.png</file>
     <file>assets/worldmap.png</file>
     <file>assets/plane_2.png</file>

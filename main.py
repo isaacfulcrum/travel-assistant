@@ -16,9 +16,12 @@ class mainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.showMaximized()
         self.ui.views.setCurrentIndex(0)
-        self.ui.travel_button.clicked.connect(self.changePage)
 
+        self.ui.travel_button.clicked.connect(self.changePage)
         self.ui.pushButton.clicked.connect(self.drawGraph)
+
+        self.ui.listWidget.addItem("WELCOME TO TRAVEL ASSISTANT")
+
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
 

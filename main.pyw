@@ -11,6 +11,8 @@ class mainWindow(QMainWindow):
         self.ui.views.setCurrentIndex(0)
         self.ui.travel_button.clicked.connect(self.changePage)
 
+        self.ui.listWidget.addItem("WELCOME TO TRAVEL ASSISTANT")
+
     def changePage(self):
         self.ui.views.setCurrentIndex(1)
 
