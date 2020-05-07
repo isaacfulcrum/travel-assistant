@@ -91,16 +91,25 @@ class mainWindow(QMainWindow):
 
     @Slot()
     def drawGraph(self):
-        # self.loadUsers()  # Se cargará el json de los usuarios
-        # self.loadCountries()  # Se cargara el json de paises
         pen = QPen()
-        pen.setWidth(5)
+        pen.setWidth(1)
         color = QColor(12,43,22)
         pen.setColor(color)
-        self.scene.addEllipse(400,50,8,8,pen)
-        self.scene.addEllipse(2,10,3,3,pen)
+        self.scene.addEllipse(0, 0, 1, 1, pen)
+        self.scene.addEllipse(948, 445, 1, 1, pen)
+        #Esto es para tener una zona de trabajo de 950x447
+        print(self.scene.height())
+        print(self.scene.width())
+
+        pen.setWidth(5)
+
     #drawGraph
 
+    def wheelEvent(self, event):
+        if(event.delta() > 0):
+            self.ui.gvWorldMap.scale(1.2,1.2)
+        else:
+            self.ui.gvWorldMap.scale(0.8,0.8)
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = mainWindow()

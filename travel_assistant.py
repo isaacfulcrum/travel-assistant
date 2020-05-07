@@ -271,7 +271,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Travel Assistant", None))
         self.actionLoad_Countries.setText(QCoreApplication.translate("MainWindow", u"Load Countries", None))
+#if QT_CONFIG(shortcut)
+        self.actionLoad_Countries.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+O", None))
+#endif // QT_CONFIG(shortcut)
         self.actionLoad_Users.setText(QCoreApplication.translate("MainWindow", u"Load Users", None))
+#if QT_CONFIG(shortcut)
+        self.actionLoad_Users.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+U", None))
+#endif // QT_CONFIG(shortcut)
         self.travel_button.setText(QCoreApplication.translate("MainWindow", u"TRAVEL", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Reservation", None))

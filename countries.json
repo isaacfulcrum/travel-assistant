@@ -1,13 +1,13 @@
 [
      {
-          "name": "Mexico",
+          "name": "México",
           "starsClothes": 3,
           "starsFood": 5,
           "starsTourism": 4,
-          "cost": 465,
+          "cost": 254,
           "coordinates": [
-               50,
-               35
+               168,
+               200
           ]
      },
      {
@@ -15,21 +15,153 @@
           "starsClothes": 2,
           "starsFood": 3,
           "starsTourism": 2,
-          "cost": 1600,
+          "cost": 600,
           "coordinates": [
-               80,
-               92
+               277,
+               350
           ]
      },
      {
-          "name": "Brasil",
+          "name": "Brazil",
           "starsClothes": 3,
           "starsFood": 3,
           "starsTourism": 4,
-          "cost": 2547,
+          "cost": 675,
           "coordinates": [
-               90,
-               66
+               313,
+               290
           ]
      },
+     {
+          "name": "France",
+          "starsClothes": 4,
+          "starsFood": 2,
+          "starsTourism": 5,
+          "cost": 768,
+          "coordinates": [
+               459,
+               140
+          ]
+     },
+     {
+          "name": "Spain",
+          "starsClothes": 5,
+          "starsFood": 4,
+          "starsTourism": 4,
+          "cost": 436,
+          "coordinates": [
+               444,
+               160
+          ]
+     },
+     {
+          "name": "Japan",
+          "starsClothes": 5,
+          "starsFood": 5,
+          "starsTourism": 5,
+          "cost": 887,
+          "coordinates": [
+               826,
+               149
+          ]
+     },
+     {
+          "name": "South Korea",
+          "starsClothes": 5,
+          "starsFood": 4,
+          "starsTourism": 5,
+          "cost": 864,
+          "coordinates": [
+               794,
+               152
+          ]
+     },
+     {
+          "name": "United Kingdom",
+          "starsClothes": 4,
+          "starsFood": 3,
+          "starsTourism": 4,
+          "cost": 734,
+          "coordinates": [
+               450,
+               122
+          ]
+     },
+     {
+          "name": "Italy",
+          "starsClothes": 5,
+          "starsFood": 5,
+          "starsTourism": 4,
+          "cost": 762,
+          "coordinates": [
+               486,
+               152
+          ]
+     },
+     {
+          "name": "Germany",
+          "starsClothes": 3,
+          "starsFood": 5,
+          "starsTourism": 4,
+          "cost": 768,
+          "coordinates": [
+               478,
+               130
+          ]
+     },
+     {
+          "name": "Australia",
+          "starsClothes": 3,
+          "starsFood": 5,
+          "starsTourism": 4,
+          "cost": 946,
+          "coordinates": [
+               829,
+               335
+          ]
+     },
+     {
+          "name": "Peru",
+          "starsClothes": 2,
+          "starsFood": 2,
+          "starsTourism": 2,
+          "cost": 243,
+          "coordinates": [
+               239,
+               292
+          ]
+     },
+     {
+          "name": "Greece",
+          "starsClothes": 4,
+          "starsFood": 3,
+          "starsTourism": 4,
+          "cost": 868,
+          "coordinates": [
+               512,
+               165
+          ]
+     },
+     {
+          "name": "Canada",
+          "starsClothes": 5,
+          "starsFood": 4,
+          "starsTourism": 5,
+          "cost": 789,
+          "coordinates": [
+               197,
+               89
+          ]
+     },
+     {
+          "name": "Russian",
+          "starsClothes": 3,
+          "starsFood": 3,
+          "starsTourism": 4,
+          "cost": 888,
+          "coordinates": [
+               692,
+               75
+          ]
+     }
 ]
