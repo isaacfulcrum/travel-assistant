@@ -21,7 +21,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(860, 600)
+        MainWindow.resize(1000, 700)
+        MainWindow.setMinimumSize(QSize(1000, 700))
         icon = QIcon()
         icon.addFile(u":/Icons/assets/planeIcon.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -123,7 +124,7 @@ class Ui_MainWindow(object):
 
         self.gvWorldMap = QGraphicsView(self.frame_2)
         self.gvWorldMap.setObjectName(u"gvWorldMap")
-        self.gvWorldMap.setMinimumSize(QSize(0, 0))
+        self.gvWorldMap.setMinimumSize(QSize(950, 400))
         self.gvWorldMap.setMaximumSize(QSize(950, 16777215))
         self.gvWorldMap.setStyleSheet(u"QGraphicsView\n"
 "{\n"
@@ -246,7 +247,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 860, 21))
+        self.menubar.setGeometry(QRect(0, 0, 1000, 21))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         MainWindow.setMenuBar(self.menubar)

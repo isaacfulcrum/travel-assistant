@@ -16,7 +16,6 @@ class mainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.showMaximized()
         self.ui.views.setCurrentIndex(0)
-
         self.ui.travel_button.clicked.connect(self.changePage)
         self.ui.pushButton.clicked.connect(self.drawGraph)
 
