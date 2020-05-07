@@ -26,6 +26,10 @@ class Ui_MainWindow(object):
         icon.addFile(u":/Icons/assets/planeIcon.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setLayoutDirection(Qt.LeftToRight)
+        self.actionLoad_Countries = QAction(MainWindow)
+        self.actionLoad_Countries.setObjectName(u"actionLoad_Countries")
+        self.actionLoad_Users = QAction(MainWindow)
+        self.actionLoad_Users.setObjectName(u"actionLoad_Users")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -117,18 +121,18 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label, 0, 2, 1, 1)
 
-        self.graphicsView = QGraphicsView(self.frame_2)
-        self.graphicsView.setObjectName(u"graphicsView")
-        self.graphicsView.setMinimumSize(QSize(0, 0))
-        self.graphicsView.setMaximumSize(QSize(950, 16777215))
-        self.graphicsView.setStyleSheet(u"QGraphicsView\n"
+        self.gvWorldMap = QGraphicsView(self.frame_2)
+        self.gvWorldMap.setObjectName(u"gvWorldMap")
+        self.gvWorldMap.setMinimumSize(QSize(0, 0))
+        self.gvWorldMap.setMaximumSize(QSize(950, 16777215))
+        self.gvWorldMap.setStyleSheet(u"QGraphicsView\n"
 "{\n"
 "	background-color: None;\n"
 "	border-image: url(:/Images/assets/worldmap.jpg);\n"
 "}\n"
 "")
 
-        self.gridLayout_6.addWidget(self.graphicsView, 1, 1, 1, 3)
+        self.gridLayout_6.addWidget(self.gvWorldMap, 1, 1, 1, 3)
 
         self.horizontalSpacer_12 = QSpacerItem(271, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -243,10 +247,16 @@ class Ui_MainWindow(object):
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 860, 21))
+        self.menuFile = QMenu(self.menubar)
+        self.menuFile.setObjectName(u"menuFile")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menuFile.addAction(self.actionLoad_Countries)
+        self.menuFile.addAction(self.actionLoad_Users)
 
         self.retranslateUi(MainWindow)
 
@@ -259,6 +269,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Travel Assistant", None))
+        self.actionLoad_Countries.setText(QCoreApplication.translate("MainWindow", u"Load Countries", None))
+        self.actionLoad_Users.setText(QCoreApplication.translate("MainWindow", u"Load Users", None))
         self.travel_button.setText(QCoreApplication.translate("MainWindow", u"TRAVEL", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Reservation", None))
@@ -270,5 +282,6 @@ class Ui_MainWindow(object):
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Arrival:", None))
         self.radioButton_3.setText(QCoreApplication.translate("MainWindow", u"Distance", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"CANCEL", None))
+        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
     # retranslateUi
 

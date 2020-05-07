@@ -23,8 +23,9 @@ class mainWindow(QMainWindow):
         self.ui.listWidget.addItem("WELCOME TO TRAVEL ASSISTANT")
 
         self.scene = QGraphicsScene()
-        self.ui.graphicsView.setScene(self.scene)
+        self.ui.gvWorldMap.setScene(self.scene)
 
+        self.ui.actionLoad_Countries.triggered.connect(self.drawGraph)
 
 
     def changePage(self):
@@ -88,14 +89,17 @@ class mainWindow(QMainWindow):
         with open(fileLocation[0], 'r') as file:
             self.users = json.load(file)
     #loadCountries
+
     @Slot()
     def drawGraph(self):
-        self.loadUsers()  # Se cargará el json de los usuarios
-        self.loadCountries()  # Se cargara el json de paises
+        # self.loadUsers()  # Se cargará el json de los usuarios
+        # self.loadCountries()  # Se cargara el json de paises
         pen = QPen()
-        pen.setWidth(3)
+        pen.setWidth(5)
         color = QColor(12,43,22)
         pen.setColor(color)
+        self.scene.addEllipse(400,50,8,8,pen)
+        self.scene.addEllipse(2,10,3,3,pen)
     #drawGraph
 
 if __name__ == "__main__":
