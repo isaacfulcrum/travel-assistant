@@ -4,12 +4,14 @@ from PySide2.QtWidgets import QGraphicsScene
 from PySide2.QtCore import Slot
 from PySide2.QtGui import QPen, QColor, QTransform
 import json
+from random import randint
 
 
 class mainWindow(QMainWindow):
     def __init__(self):
         super(mainWindow, self).__init__()
         self.countries = []
+        self.graphOfCountries = dict()
         self.users = []
 
         self.ui = Ui_MainWindow()
@@ -91,17 +93,38 @@ class mainWindow(QMainWindow):
 
     @Slot()
     def drawGraph(self):
+        self.countries.clear()
+        self.laodCountries()
         pen = QPen()
         pen.setWidth(1)
-        color = QColor(12,43,22)
-        pen.setColor(color)
+        pen.setColor(QColor(0,0,0))
         self.scene.addEllipse(0, 0, 1, 1, pen)
         self.scene.addEllipse(948, 445, 1, 1, pen)
         #Esto es para tener una zona de trabajo de 950x447
         print(self.scene.height())
         print(self.scene.width())
 
-        pen.setWidth(5)
+
+        for node in self.countries:
+            origin = (node["coordinates"][0],node["coordinates"][1])
+            if origin not in self.graphOfCountries:
+                self.graphOfCountries[origin] = []
+            for adjacencies in node["adjacencies"]:
+                self.graphOfCountries[origin].append(adjacencies)
+
+        for country, adjacencies in self.graphOfCountries.items():
+            pen.setWidth(5)
+            r = randint(0,255)
+            g = randint(0,255)
+            b = randint(0,255)
+            color = QColor(r,g,b)
+            pen.setColor(color)
+            self.scene.addEllipse(country[0],country[1],5,5,pen)
+            pen.setWidth(3)
+            for element in adjacencies:
+                otherCountry = element[0]
+                self.scene.addLine(country[0]+1,country[1]+1, otherCountry[0]+1,otherCountry[1]+1, pen)
+
 
     #drawGraph
 
