@@ -5,6 +5,7 @@ from PySide2.QtWidgets import QGraphicsScene
 from PySide2.QtCore import Slot
 from PySide2.QtGui import QPen, QColor, QTransform
 import json
+import pathlib
 from random import randint
 
 
@@ -13,9 +14,11 @@ class mainWindow(QMainWindow):
         super(mainWindow, self).__init__()
 
         # Data control
+        self.database = dict()
         self.countries = dict()
         self.users = dict()
         self.graphOfCountries = dict()
+        self.path = str(pathlib.Path(__file__).parent.absolute()) + '/database.json'
 
         # Ui
         self.ui = Ui_MainWindow()
@@ -35,13 +38,25 @@ class mainWindow(QMainWindow):
         self.ui.listWidget.addItem("WELCOME TO TRAVEL ASSISTANT")
         self.scene = QGraphicsScene()
         self.ui.gvWorldMap.setScene(self.scene)
-        # self.ui.actionLoad_Countries.triggered.connect(self.drawGraph)
+        # self.ui.load_Data.triggered.connect(self.loadFile)
         self.loadData()
         self.drawGraph()
         self.initStars()
 
-    def changePage(self):
+    def loadData(self):
+        if os.path.exists(self.path) and os.stat(self.path).st_size != 0:
+            with open(self.path, 'r') as data_file:
+                self.database = json.load(data_file)
+                self.users = self.database["Users"]
+                self.countries = self.database["Countries"]
 
+    def saveData(self):
+        self.database["Users"] = self.users
+        self.database["Countries"] = self.countries
+        with open(self.path, 'w') as data_file:
+            json.dump(self.database, data_file, indent=5)
+
+    def changePage(self):
         if self.sender().objectName() == "travel_button":
             self.ui.views.setCurrentIndex(1)
         elif self.sender().objectName() == "ready_button":
@@ -52,48 +67,40 @@ class mainWindow(QMainWindow):
     def initStars(self):
         for i in range(1, 4):
             for j in range(2, 6):
-                command = "self.ui.star{}_{}.setVisible(False)".format(i,j)
+                command = "self.ui.star{}_{}.hide()".format(i,j)
                 exec(command)
 
     # Stars control
     def manageStars(self):
         if self.sender().objectName() == "places_sb":
             for i in range(2, 6):
-                command = "self.ui.star1_{}.setVisible(False)".format(i)
+                command = "self.ui.star1_{}.hide()".format(i)
                 exec(command)
 
             for i in range(2, int(self.ui.places_sb.text()) + 1):
-                command = "self.ui.star1_{}.setVisible(True)".format(i)
+                command = "self.ui.star1_{}.show()".format(i)
                 exec(command)
 
         elif self.sender().objectName() == "food_sb":
             for i in range(2, 6):
-                command = "self.ui.star2_{}.setVisible(False)".format(i)
+                command = "self.ui.star2_{}.hide()".format(i)
                 exec(command)
 
             for i in range(2, int(self.ui.food_sb.text()) + 1):
-                command = "self.ui.star2_{}.setVisible(True)".format(i)
+                command = "self.ui.star2_{}.show()".format(i)
                 exec(command)
 
         elif self.sender().objectName() == "clothes_sb":
 
             for i in range(2, 6):
-                command = "self.ui.star3_{}.setVisible(False)".format(i)
+                command = "self.ui.star3_{}.hide()".format(i)
                 exec(command)
 
             for i in range(2, int(self.ui.clothes_sb.text()) + 1):
-                command = "self.ui.star3_{}.setVisible(True)".format(i)
+                command = "self.ui.star3_{}.show()".format(i)
                 exec(command)
 
-    def loadData(self):
-        if os.path.exists("users.json") and os.stat("users.json").st_size != 0:
-            with open("users.json", 'r') as users_file:
-                self.users = json.load(users_file)
-
-        if os.path.exists("countries.json") and os.stat("countries.json").st_size != 0:
-            with open("countries.json", 'r') as countries_file:
-                self.countries = json.load(countries_file)
-
+    # addNewCountry
     def addNewCountry(self):
         #Metodo de prueba para ver los datos que lleva cada diccionario de cada pais
         #Hay que cambiarlo para que tenga un evento al momento de querer cargar uno nuevo
@@ -106,12 +113,6 @@ class mainWindow(QMainWindow):
             "coordinates": (50,35)
         }
         return country
-    #addNewCountry
-
-    def saveCountries(self):
-        with open("countries.json", 'w') as file:
-            json.dump(self.countries, file, indent=5)
-
 
     # Add a new user
     def addNewUser(self):
@@ -127,17 +128,12 @@ class mainWindow(QMainWindow):
         self.users[name]["food"] = food
         self.users[name]["places"] = places
         self.users[name]["clothes"] = clothes
-        self.saveUsers()
-
-    def saveUsers(self):
-        # Write the users in the file
-        with open("users.json", 'w') as file:
-            json.dump(self.users, file, indent=5)
+        self.saveData()
 
     @Slot()
     def drawGraph(self):
-        self.countries.clear()
-        self.loadData()
+        # self.countries.clear()
+        # self.loadData()
         pen = QPen()
         pen.setWidth(1)
         pen.setColor(QColor(0,0,0))

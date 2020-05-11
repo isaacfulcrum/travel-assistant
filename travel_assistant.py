@@ -27,10 +27,9 @@ class Ui_MainWindow(object):
         icon.addFile(u":/Icons/assets/planeIcon.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setLayoutDirection(Qt.LeftToRight)
-        self.actionLoad_Countries = QAction(MainWindow)
-        self.actionLoad_Countries.setObjectName(u"actionLoad_Countries")
-        self.actionLoad_Users = QAction(MainWindow)
-        self.actionLoad_Users.setObjectName(u"actionLoad_Users")
+        self.load_Data = QAction(MainWindow)
+        self.load_Data.setObjectName(u"load_Data")
+        self.load_Data.setIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -571,8 +570,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.menubar.addAction(self.menuFile.menuAction())
-        self.menuFile.addAction(self.actionLoad_Countries)
-        self.menuFile.addAction(self.actionLoad_Users)
+        self.menuFile.addAction(self.load_Data)
 
         self.retranslateUi(MainWindow)
 
@@ -585,13 +583,12 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Travel Assistant", None))
-        self.actionLoad_Countries.setText(QCoreApplication.translate("MainWindow", u"Load Countries", None))
+        self.load_Data.setText(QCoreApplication.translate("MainWindow", u"Load database", None))
+#if QT_CONFIG(tooltip)
+        self.load_Data.setToolTip(QCoreApplication.translate("MainWindow", u"Load database", None))
+#endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(shortcut)
-        self.actionLoad_Countries.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+O", None))
-#endif // QT_CONFIG(shortcut)
-        self.actionLoad_Users.setText(QCoreApplication.translate("MainWindow", u"Load Users", None))
-#if QT_CONFIG(shortcut)
-        self.actionLoad_Users.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+U", None))
+        self.load_Data.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+O", None))
 #endif // QT_CONFIG(shortcut)
         self.travel_button.setText(QCoreApplication.translate("MainWindow", u"TRAVEL", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"First time traveling with us?", None))

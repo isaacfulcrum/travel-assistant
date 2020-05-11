@@ -429,8 +429,7 @@ color: rgb(0, 0, 0)</string>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">
-</string>
+                    <string notr="true"/>
                    </property>
                    <property name="title">
                     <string>When you visit a country are you looking for...</string>
@@ -1171,26 +1170,24 @@ color: rgb(0, 0, 0)</string>
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionLoad_Countries"/>
-    <addaction name="actionLoad_Users"/>
+    <addaction name="load_Data"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionLoad_Countries">
+  <action name="load_Data">
+   <property name="icon">
+    <iconset resource="travel_assistant_assets.qrc">
+     <normaloff>:/Icons/assets/planeIcon.png</normaloff>:/Icons/assets/planeIcon.png</iconset>
+   </property>
    <property name="text">
-    <string>Load Countries</string>
+    <string>Load database</string>
+   </property>
+   <property name="toolTip">
+    <string>Load database</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
-   </property>
-  </action>
-  <action name="actionLoad_Users">
-   <property name="text">
-    <string>Load Users</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+U</string>
    </property>
   </action>
  </widget>
