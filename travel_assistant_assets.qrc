@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="Images">
+    <file>assets/travelStamps.jpg</file>
+    <file>assets/star.png</file>
     <file>assets/worldmap.jpg</file>
     <file>assets/plane_vector.png</file>
     <file>assets/worldmap.png</file>
@@ -8,5 +10,10 @@
   </qresource>
   <qresource prefix="Icons">
     <file>assets/planeIcon.png</file>
+    <file>assets/foodIcon.png</file>
+    <file>assets/clothesIcon.png</file>
+    <file>assets/moneyIcon.png</file>
+    <file>assets/placeIcon.png</file>
+    <file>assets/userIcon.png</file>
   </qresource>
 </RCC>

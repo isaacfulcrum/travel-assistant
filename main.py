@@ -1,4 +1,5 @@
 import sys
+import os
 from travel_assistant import *
 from PySide2.QtWidgets import QGraphicsScene
 from PySide2.QtCore import Slot
@@ -10,27 +11,88 @@ from random import randint
 class mainWindow(QMainWindow):
     def __init__(self):
         super(mainWindow, self).__init__()
-        self.countries = []
-        self.graphOfCountries = dict()
-        self.users = []
 
+        # Data control
+        self.countries = dict()
+        self.users = dict()
+        self.graphOfCountries = dict()
+
+        # Ui
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.showMaximized()
+
+        # Views control
         self.ui.views.setCurrentIndex(0)
         self.ui.travel_button.clicked.connect(self.changePage)
-        self.ui.pushButton.clicked.connect(self.drawGraph)
+        self.ui.ready_button.clicked.connect(self.changePage)
+
+        # Manage stars
+        self.ui.clothes_sb.valueChanged.connect(self.manageStars)
+        self.ui.food_sb.valueChanged.connect(self.manageStars)
+        self.ui.places_sb.valueChanged.connect(self.manageStars)
 
         self.ui.listWidget.addItem("WELCOME TO TRAVEL ASSISTANT")
-
         self.scene = QGraphicsScene()
         self.ui.gvWorldMap.setScene(self.scene)
-
-        self.ui.actionLoad_Countries.triggered.connect(self.drawGraph)
-
+        # self.ui.actionLoad_Countries.triggered.connect(self.drawGraph)
+        self.loadData()
+        self.drawGraph()
+        self.initStars()
 
     def changePage(self):
-        self.ui.views.setCurrentIndex(1)
+
+        if self.sender().objectName() == "travel_button":
+            self.ui.views.setCurrentIndex(1)
+        elif self.sender().objectName() == "ready_button":
+            self.addNewUser()
+            self.ui.views.setCurrentIndex(2)
+
+    # Stars are placed in their initial position
+    def initStars(self):
+        for i in range(1, 4):
+            for j in range(2, 6):
+                command = "self.ui.star{}_{}.setVisible(False)".format(i,j)
+                exec(command)
+
+    # Stars control
+    def manageStars(self):
+        if self.sender().objectName() == "places_sb":
+            for i in range(2, 6):
+                command = "self.ui.star1_{}.setVisible(False)".format(i)
+                exec(command)
+
+            for i in range(2, int(self.ui.places_sb.text()) + 1):
+                command = "self.ui.star1_{}.setVisible(True)".format(i)
+                exec(command)
+
+        elif self.sender().objectName() == "food_sb":
+            for i in range(2, 6):
+                command = "self.ui.star2_{}.setVisible(False)".format(i)
+                exec(command)
+
+            for i in range(2, int(self.ui.food_sb.text()) + 1):
+                command = "self.ui.star2_{}.setVisible(True)".format(i)
+                exec(command)
+
+        elif self.sender().objectName() == "clothes_sb":
+
+            for i in range(2, 6):
+                command = "self.ui.star3_{}.setVisible(False)".format(i)
+                exec(command)
+
+            for i in range(2, int(self.ui.clothes_sb.text()) + 1):
+                command = "self.ui.star3_{}.setVisible(True)".format(i)
+                exec(command)
+
+    def loadData(self):
+        if os.path.exists("users.json") and os.stat("users.json").st_size != 0:
+            with open("users.json", 'r') as users_file:
+                self.users = json.load(users_file)
+
+        if os.path.exists("countries.json") and os.stat("countries.json").st_size != 0:
+            with open("countries.json", 'r') as countries_file:
+                self.countries = json.load(countries_file)
 
     def addNewCountry(self):
         #Metodo de prueba para ver los datos que lleva cada diccionario de cada pais
@@ -43,58 +105,39 @@ class mainWindow(QMainWindow):
             "cost": 465,
             "coordinates": (50,35)
         }
-
         return country
     #addNewCountry
 
     def saveCountries(self):
-        fileLocation = QFileDialog.getSaveFileName(self, "SaveCountries", ".", "JSON")
-
-        with open(fileLocation[0], 'w') as file:
+        with open("countries.json", 'w') as file:
             json.dump(self.countries, file, indent=5)
-    #saveCountries
 
-    def laodCountries(self):
-        fileLocation = QFileDialog.getOpenFileName(self, "LoadCountries", ".", "JSON(*.json)")
 
-        with open(fileLocation[0], 'r') as file:
-            self.countries = json.load(file)
-    #loadCountries
-
+    # Add a new user
     def addNewUser(self):
-        #Metodo de prueba para ver los datos que lleva cada diccionario de cada usuario
-        #Hay que cambiarlo para que tenga un evento al momento de querer cargar uno nuevo
-        country = {
-            "name": "Juan",
-            "capital": 1500,
-            "countryOrigin": "Mexico",
-            "countryDestiny": "Argentina",
-            "tasteForFood": 5,
-            "tasteForClothes": 3,
-            "tasteForTourism": 6
-        }
+        
+        name = self.ui.nameText.text()
+        budget = int(self.ui.budgetText.text())
+        places = int(self.ui.places_sb.text())
+        food = int(self.ui.food_sb.text())
+        clothes = int(self.ui.clothes_sb.text())
 
-        return country
-    #addNewCountry
+        self.users[name] = dict()
+        self.users[name]["budget"] = budget
+        self.users[name]["food"] = food
+        self.users[name]["places"] = places
+        self.users[name]["clothes"] = clothes
+        self.saveUsers()
 
     def saveUsers(self):
-        fileLocation = QFileDialog.getSaveFileName(self, "SaveUsers", ".", "JSON")
-
-        with open(fileLocation[0], 'w') as file:
+        # Write the users in the file
+        with open("users.json", 'w') as file:
             json.dump(self.users, file, indent=5)
-    #saveCountries
-
-    def loadUsers(self):
-        fileLocation = QFileDialog.getOpenFileName(self, "LoadUsers", ".", "JSON(*.json)")
-
-        with open(fileLocation[0], 'r') as file:
-            self.users = json.load(file)
-    #loadCountries
 
     @Slot()
     def drawGraph(self):
         self.countries.clear()
-        self.laodCountries()
+        self.loadData()
         pen = QPen()
         pen.setWidth(1)
         pen.setColor(QColor(0,0,0))
@@ -103,7 +146,6 @@ class mainWindow(QMainWindow):
         #Esto es para tener una zona de trabajo de 950x447
         print(self.scene.height())
         print(self.scene.width())
-
 
         for node in self.countries:
             origin = (node["coordinates"][0],node["coordinates"][1])
@@ -125,14 +167,13 @@ class mainWindow(QMainWindow):
                 otherCountry = element[0]
                 self.scene.addLine(country[0]+1,country[1]+1, otherCountry[0]+1,otherCountry[1]+1, pen)
 
-
     #drawGraph
-
     def wheelEvent(self, event):
         if(event.delta() > 0):
             self.ui.gvWorldMap.scale(1.2,1.2)
         else:
             self.ui.gvWorldMap.scale(0.8,0.8)
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = mainWindow()

@@ -95,11 +95,326 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
 
         self.views.addWidget(self.welcome)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.gridLayout_4 = QGridLayout(self.page_2)
+        self.users = QWidget()
+        self.users.setObjectName(u"users")
+        self.gridLayout_7 = QGridLayout(self.users)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.frame_3 = QFrame(self.users)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setStyleSheet(u"border-image: url(:/Images/assets/travelStamps.jpg);\n"
+"")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.gridLayout_11 = QGridLayout(self.frame_3)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.horizontalSpacer_13 = QSpacerItem(154, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_11.addItem(self.horizontalSpacer_13, 0, 0, 1, 1)
+
+        self.frame_4 = QFrame(self.frame_3)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMaximumSize(QSize(620, 370))
+        self.frame_4.setStyleSheet(u"background-color:rgb(0, 0, 0);\n"
+"border-image:None;")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.gridLayout_10 = QGridLayout(self.frame_4)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.groupBox_3 = QGroupBox(self.frame_4)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.groupBox_3.setMinimumSize(QSize(600, 350))
+        self.groupBox_3.setMaximumSize(QSize(800, 350))
+        font1 = QFont()
+        font1.setFamily(u"News706 BT")
+        font1.setPointSize(9)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.groupBox_3.setFont(font1)
+        self.groupBox_3.setStyleSheet(u"border-image:None;\n"
+"background-color:rgb(66, 148, 170);\n"
+"color: rgb(255, 255, 255)\n"
+"\n"
+"\n"
+"\n"
+"")
+        self.groupBox_3.setAlignment(Qt.AlignCenter)
+        self.groupBox_3.setFlat(False)
+        self.gridLayout_9 = QGridLayout(self.groupBox_3)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.gridLayout_9.setContentsMargins(-1, 9, -1, -1)
+        self.label_6 = QLabel(self.groupBox_3)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setMinimumSize(QSize(25, 25))
+        self.label_6.setStyleSheet(u"image: url(:/Icons/assets/userIcon.png);")
+
+        self.gridLayout_9.addWidget(self.label_6, 0, 0, 1, 1)
+
+        self.label_7 = QLabel(self.groupBox_3)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setFont(font1)
+        self.label_7.setStyleSheet(u"color: rgb(255, 255, 255)")
+
+        self.gridLayout_9.addWidget(self.label_7, 0, 1, 1, 1)
+
+        self.nameText = QLineEdit(self.groupBox_3)
+        self.nameText.setObjectName(u"nameText")
+        self.nameText.setMinimumSize(QSize(250, 0))
+        self.nameText.setMaximumSize(QSize(300, 16777215))
+        self.nameText.setStyleSheet(u"background-color: None;\n"
+"color: rgb(0, 0, 0)")
+
+        self.gridLayout_9.addWidget(self.nameText, 0, 2, 1, 4)
+
+        self.horizontalSpacer_9 = QSpacerItem(226, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer_9, 0, 6, 1, 1)
+
+        self.label_10 = QLabel(self.groupBox_3)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMinimumSize(QSize(25, 25))
+        self.label_10.setStyleSheet(u"image: url(:/Icons/assets/moneyIcon.png);")
+
+        self.gridLayout_9.addWidget(self.label_10, 1, 0, 1, 1)
+
+        self.label_8 = QLabel(self.groupBox_3)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setFont(font1)
+        self.label_8.setStyleSheet(u"color: rgb(255, 255, 255)")
+
+        self.gridLayout_9.addWidget(self.label_8, 1, 1, 1, 1)
+
+        self.budgetText = QLineEdit(self.groupBox_3)
+        self.budgetText.setObjectName(u"budgetText")
+        self.budgetText.setMaximumSize(QSize(100, 16777215))
+        self.budgetText.setStyleSheet(u"background-color: None;\n"
+"color: rgb(0, 0, 0)")
+
+        self.gridLayout_9.addWidget(self.budgetText, 1, 2, 1, 1)
+
+        self.horizontalSpacer_10 = QSpacerItem(381, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer_10, 1, 3, 1, 4)
+
+        self.ready_button = QPushButton(self.groupBox_3)
+        self.ready_button.setObjectName(u"ready_button")
+        self.ready_button.setMaximumSize(QSize(100, 50))
+        self.ready_button.setFont(font1)
+        self.ready_button.setStyleSheet(u"border-image: None\n"
+";")
+        self.ready_button.setIcon(icon)
+
+        self.gridLayout_9.addWidget(self.ready_button, 3, 4, 1, 1)
+
+        self.horizontalSpacer_16 = QSpacerItem(260, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer_16, 3, 5, 1, 2)
+
+        self.groupBox_2 = QGroupBox(self.groupBox_3)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setFont(font1)
+        self.groupBox_2.setStyleSheet(u"")
+        self.groupBox_2.setFlat(False)
+        self.gridLayout_8 = QGridLayout(self.groupBox_2)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.star3_3 = QLabel(self.groupBox_2)
+        self.star3_3.setObjectName(u"star3_3")
+        self.star3_3.setMaximumSize(QSize(30, 16777215))
+        self.star3_3.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star3_3, 2, 5, 1, 1)
+
+        self.food_sb = QSpinBox(self.groupBox_2)
+        self.food_sb.setObjectName(u"food_sb")
+        self.food_sb.setMaximumSize(QSize(60, 16777215))
+        self.food_sb.setStyleSheet(u"background-color:None;\n"
+"color: rgb(0, 0, 0)")
+        self.food_sb.setMinimum(1)
+        self.food_sb.setMaximum(5)
+
+        self.gridLayout_8.addWidget(self.food_sb, 1, 2, 1, 1)
+
+        self.star2_2 = QLabel(self.groupBox_2)
+        self.star2_2.setObjectName(u"star2_2")
+        self.star2_2.setMaximumSize(QSize(30, 16777215))
+        self.star2_2.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star2_2, 1, 4, 1, 1)
+
+        self.star2_4 = QLabel(self.groupBox_2)
+        self.star2_4.setObjectName(u"star2_4")
+        self.star2_4.setMaximumSize(QSize(30, 16777215))
+        self.star2_4.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star2_4, 1, 6, 1, 1)
+
+        self.star1_3 = QLabel(self.groupBox_2)
+        self.star1_3.setObjectName(u"star1_3")
+        self.star1_3.setMaximumSize(QSize(30, 16777215))
+        self.star1_3.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star1_3, 0, 5, 1, 1)
+
+        self.star1_2 = QLabel(self.groupBox_2)
+        self.star1_2.setObjectName(u"star1_2")
+        self.star1_2.setMaximumSize(QSize(30, 16777215))
+        self.star1_2.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star1_2, 0, 4, 1, 1)
+
+        self.label_12 = QLabel(self.groupBox_2)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setFont(font1)
+
+        self.gridLayout_8.addWidget(self.label_12, 1, 1, 1, 1)
+
+        self.star3_2 = QLabel(self.groupBox_2)
+        self.star3_2.setObjectName(u"star3_2")
+        self.star3_2.setMaximumSize(QSize(30, 16777215))
+        self.star3_2.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star3_2, 2, 4, 1, 1)
+
+        self.star1_1 = QLabel(self.groupBox_2)
+        self.star1_1.setObjectName(u"star1_1")
+        self.star1_1.setMaximumSize(QSize(30, 16777215))
+        self.star1_1.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star1_1, 0, 3, 1, 1)
+
+        self.star1_5 = QLabel(self.groupBox_2)
+        self.star1_5.setObjectName(u"star1_5")
+        self.star1_5.setMaximumSize(QSize(30, 16777215))
+        self.star1_5.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star1_5, 0, 7, 1, 1)
+
+        self.star1_4 = QLabel(self.groupBox_2)
+        self.star1_4.setObjectName(u"star1_4")
+        self.star1_4.setMaximumSize(QSize(30, 16777215))
+        self.star1_4.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star1_4, 0, 6, 1, 1)
+
+        self.label_9 = QLabel(self.groupBox_2)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setFont(font1)
+
+        self.gridLayout_8.addWidget(self.label_9, 2, 1, 1, 1)
+
+        self.label_13 = QLabel(self.groupBox_2)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setMaximumSize(QSize(30, 16777215))
+        self.label_13.setStyleSheet(u"image: url(:/Icons/assets/placeIcon.png);")
+
+        self.gridLayout_8.addWidget(self.label_13, 0, 0, 1, 1)
+
+        self.star2_5 = QLabel(self.groupBox_2)
+        self.star2_5.setObjectName(u"star2_5")
+        self.star2_5.setMaximumSize(QSize(30, 16777215))
+        self.star2_5.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star2_5, 1, 7, 1, 1)
+
+        self.star3_1 = QLabel(self.groupBox_2)
+        self.star3_1.setObjectName(u"star3_1")
+        self.star3_1.setMaximumSize(QSize(30, 16777215))
+        self.star3_1.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star3_1, 2, 3, 1, 1)
+
+        self.label_15 = QLabel(self.groupBox_2)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setStyleSheet(u"image: url(:/Icons/assets/clothesIcon.png);")
+
+        self.gridLayout_8.addWidget(self.label_15, 2, 0, 1, 1)
+
+        self.places_sb = QSpinBox(self.groupBox_2)
+        self.places_sb.setObjectName(u"places_sb")
+        self.places_sb.setMaximumSize(QSize(60, 16777215))
+        self.places_sb.setStyleSheet(u"background-color:None;\n"
+"color: rgb(0, 0, 0)")
+        self.places_sb.setMinimum(1)
+        self.places_sb.setMaximum(5)
+
+        self.gridLayout_8.addWidget(self.places_sb, 0, 2, 1, 1)
+
+        self.star2_1 = QLabel(self.groupBox_2)
+        self.star2_1.setObjectName(u"star2_1")
+        self.star2_1.setMaximumSize(QSize(30, 16777215))
+        self.star2_1.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star2_1, 1, 3, 1, 1)
+
+        self.label_11 = QLabel(self.groupBox_2)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMaximumSize(QSize(120, 16777215))
+        self.label_11.setFont(font1)
+
+        self.gridLayout_8.addWidget(self.label_11, 0, 1, 1, 1)
+
+        self.star2_3 = QLabel(self.groupBox_2)
+        self.star2_3.setObjectName(u"star2_3")
+        self.star2_3.setMaximumSize(QSize(30, 16777215))
+        self.star2_3.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star2_3, 1, 5, 1, 1)
+
+        self.label_14 = QLabel(self.groupBox_2)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setStyleSheet(u"image: url(:/Icons/assets/foodIcon.png);")
+
+        self.gridLayout_8.addWidget(self.label_14, 1, 0, 1, 1)
+
+        self.star3_4 = QLabel(self.groupBox_2)
+        self.star3_4.setObjectName(u"star3_4")
+        self.star3_4.setMaximumSize(QSize(30, 16777215))
+        self.star3_4.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star3_4, 2, 6, 1, 1)
+
+        self.star3_5 = QLabel(self.groupBox_2)
+        self.star3_5.setObjectName(u"star3_5")
+        self.star3_5.setMaximumSize(QSize(30, 16777215))
+        self.star3_5.setStyleSheet(u"image: url(:/Images/assets/star.png);")
+
+        self.gridLayout_8.addWidget(self.star3_5, 2, 7, 1, 1)
+
+        self.clothes_sb = QSpinBox(self.groupBox_2)
+        self.clothes_sb.setObjectName(u"clothes_sb")
+        self.clothes_sb.setMaximumSize(QSize(60, 16777215))
+        self.clothes_sb.setStyleSheet(u"background-color:None;\n"
+"color: rgb(0, 0, 0)")
+        self.clothes_sb.setMinimum(1)
+        self.clothes_sb.setMaximum(5)
+
+        self.gridLayout_8.addWidget(self.clothes_sb, 2, 2, 1, 1)
+
+
+        self.gridLayout_9.addWidget(self.groupBox_2, 2, 0, 1, 7)
+
+        self.horizontalSpacer_15 = QSpacerItem(227, 47, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer_15, 3, 0, 1, 4)
+
+
+        self.gridLayout_10.addWidget(self.groupBox_3, 0, 0, 1, 1)
+
+
+        self.gridLayout_11.addWidget(self.frame_4, 0, 1, 1, 1)
+
+        self.horizontalSpacer_14 = QSpacerItem(154, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_11.addItem(self.horizontalSpacer_14, 0, 2, 1, 1)
+
+
+        self.gridLayout_7.addWidget(self.frame_3, 0, 0, 1, 1)
+
+        self.views.addWidget(self.users)
+        self.worldTour = QWidget()
+        self.worldTour.setObjectName(u"worldTour")
+        self.gridLayout_4 = QGridLayout(self.worldTour)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.frame_2 = QFrame(self.page_2)
+        self.frame_2 = QFrame(self.worldTour)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setLayoutDirection(Qt.LeftToRight)
         self.frame_2.setFrameShape(QFrame.StyledPanel)
@@ -112,12 +427,12 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.frame_2)
         self.label.setObjectName(u"label")
-        font1 = QFont()
-        font1.setFamily(u"News706 BT")
-        font1.setPointSize(24)
-        font1.setBold(True)
-        font1.setWeight(75)
-        self.label.setFont(font1)
+        font2 = QFont()
+        font2.setFamily(u"News706 BT")
+        font2.setPointSize(24)
+        font2.setBold(True)
+        font2.setWeight(75)
+        self.label.setFont(font2)
         self.label.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_6.addWidget(self.label, 0, 2, 1, 1)
@@ -169,10 +484,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addItem(self.horizontalSpacer_6, 0, 4, 1, 1)
 
-        self.pushButton = QPushButton(self.groupBox)
-        self.pushButton.setObjectName(u"pushButton")
+        self.start_button = QPushButton(self.groupBox)
+        self.start_button.setObjectName(u"start_button")
 
-        self.gridLayout_5.addWidget(self.pushButton, 0, 5, 1, 1)
+        self.gridLayout_5.addWidget(self.start_button, 0, 5, 1, 1)
 
         self.label_3 = QLabel(self.groupBox)
         self.label_3.setObjectName(u"label_3")
@@ -222,10 +537,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addItem(self.horizontalSpacer_8, 2, 4, 1, 1)
 
-        self.pushButton_2 = QPushButton(self.groupBox)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.cancel_button = QPushButton(self.groupBox)
+        self.cancel_button.setObjectName(u"cancel_button")
 
-        self.gridLayout_5.addWidget(self.pushButton_2, 2, 5, 1, 1)
+        self.gridLayout_5.addWidget(self.cancel_button, 2, 5, 1, 1)
 
 
         self.gridLayout_6.addWidget(self.groupBox, 2, 1, 1, 3)
@@ -240,7 +555,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.frame_2, 0, 1, 1, 1)
 
-        self.views.addWidget(self.page_2)
+        self.views.addWidget(self.worldTour)
 
         self.gridLayout.addWidget(self.views, 0, 0, 1, 1)
 
@@ -279,16 +594,44 @@ class Ui_MainWindow(object):
         self.actionLoad_Users.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+U", None))
 #endif // QT_CONFIG(shortcut)
         self.travel_button.setText(QCoreApplication.translate("MainWindow", u"TRAVEL", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"First time traveling with us?", None))
+        self.label_6.setText("")
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Name:", None))
+        self.label_10.setText("")
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Budget:", None))
+        self.ready_button.setText(QCoreApplication.translate("MainWindow", u"Ready!", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"When you visit a country are you looking for...", None))
+        self.star3_3.setText("")
+        self.star2_2.setText("")
+        self.star2_4.setText("")
+        self.star1_3.setText("")
+        self.star1_2.setText("")
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Delicious food", None))
+        self.star3_2.setText("")
+        self.star1_1.setText("")
+        self.star1_5.setText("")
+        self.star1_4.setText("")
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Good clothing stores", None))
+        self.label_13.setText("")
+        self.star2_5.setText("")
+        self.star3_1.setText("")
+        self.label_15.setText("")
+        self.star2_1.setText("")
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Great places to visit", None))
+        self.star2_3.setText("")
+        self.label_14.setText("")
+        self.star3_4.setText("")
+        self.star3_5.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Reservation", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Name:", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Specifications", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"START", None))
+        self.start_button.setText(QCoreApplication.translate("MainWindow", u"START", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Departure:", None))
         self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Money", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Arrival:", None))
         self.radioButton_3.setText(QCoreApplication.translate("MainWindow", u"Distance", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"CANCEL", None))
+        self.cancel_button.setText(QCoreApplication.translate("MainWindow", u"CANCEL", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
     # retranslateUi
 
