@@ -31,7 +31,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="views">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="welcome">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -1171,6 +1171,7 @@ color: rgb(0, 0, 0)</string>
      <string>File</string>
     </property>
     <addaction name="load_Data"/>
+    <addaction name="actionDijkstra"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -1188,6 +1189,11 @@ color: rgb(0, 0, 0)</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionDijkstra">
+   <property name="text">
+    <string>Dijkstra</string>
    </property>
   </action>
  </widget>

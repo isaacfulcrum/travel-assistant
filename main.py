@@ -7,12 +7,13 @@ from PySide2.QtGui import QPen, QColor, QTransform
 import json
 import pathlib
 from random import randint
+from pprint import pformat
 
 
 class mainWindow(QMainWindow):
     def __init__(self):
         super(mainWindow, self).__init__()
-
+        self.pen = QPen()
         # Data control
         self.database = dict()
         self.countries = dict()
@@ -42,6 +43,9 @@ class mainWindow(QMainWindow):
         self.loadData()
         self.drawGraph()
         self.initStars()
+
+
+        self.ui.actionDijkstra.triggered.connect(self.showDijkstra)
 
     def loadData(self):
         if os.path.exists(self.path) and os.stat(self.path).st_size != 0:
@@ -113,7 +117,6 @@ class mainWindow(QMainWindow):
             "coordinates": (50,35)
         }
         return country
-
     # Add a new user
     def addNewUser(self):
         
@@ -134,11 +137,10 @@ class mainWindow(QMainWindow):
     def drawGraph(self):
         # self.countries.clear()
         # self.loadData()
-        pen = QPen()
-        pen.setWidth(1)
-        pen.setColor(QColor(0,0,0))
-        self.scene.addEllipse(0, 0, 1, 1, pen)
-        self.scene.addEllipse(948, 445, 1, 1, pen)
+        self.pen.setWidth(1)
+        self.pen.setColor(QColor(0,0,0))
+        self.scene.addEllipse(0, 0, 1, 1, self.pen)
+        self.scene.addEllipse(948, 445, 1, 1, self.pen)
         #Esto es para tener una zona de trabajo de 950x447
         print(self.scene.height())
         print(self.scene.width())
@@ -151,24 +153,94 @@ class mainWindow(QMainWindow):
                 self.graphOfCountries[origin].append(adjacencies)
 
         for country, adjacencies in self.graphOfCountries.items():
-            pen.setWidth(5)
-            r = randint(0,255)
-            g = randint(0,255)
-            b = randint(0,255)
+            self.pen.setWidth(5)
+            r = randint(0,200)
+            g = randint(0,200)
+            b = randint(0,200)
             color = QColor(r,g,b)
-            pen.setColor(color)
-            self.scene.addEllipse(country[0],country[1],5,5,pen)
-            pen.setWidth(3)
+            self.pen.setColor(color)
+            self.scene.addEllipse(country[0],country[1], 5, 5, self.pen)
+            self.pen.setWidth(3)
             for element in adjacencies:
                 otherCountry = element[0]
-                self.scene.addLine(country[0]+1,country[1]+1, otherCountry[0]+1,otherCountry[1]+1, pen)
-
+                self.scene.addLine(country[0]+1,country[1]+1, otherCountry[0]+1,otherCountry[1]+1, self.pen)
     #drawGraph
-    def wheelEvent(self, event):
-        if(event.delta() > 0):
-            self.ui.gvWorldMap.scale(1.2,1.2)
-        else:
-            self.ui.gvWorldMap.scale(0.8,0.8)
+
+    @Slot()
+    def showDijkstra(self):
+        initialNode = (826,149)
+        finalNode = (277, 350)
+        if initialNode in self.graphOfCountries and finalNode in self.graphOfCountries:
+            distancesArray = dict()
+            ordenedList = []
+            wayArray = dict()
+
+            ordenedList.append((initialNode, 0))
+            for node in self.graphOfCountries:
+                if node == initialNode:
+                    distancesArray[node] = 0
+                else:
+                    distancesArray[node] = 9999999
+
+            flag = True
+            while ordenedList and flag:
+                auxNode = ordenedList.pop(0)
+                for element in self.graphOfCountries[auxNode[0]]:
+                    nodeWithDistance = ((element[0][0],element[0][1]),element[1])
+                    print(nodeWithDistance)
+                    destinyDistance = distancesArray.get(nodeWithDistance[0])
+                    currentDistance = nodeWithDistance[1] + auxNode[1]
+
+                    if currentDistance < destinyDistance:
+                        distancesArray[nodeWithDistance[0]] = currentDistance
+                        wayArray[nodeWithDistance[0]] = auxNode[0]
+                        ordenedList.append((nodeWithDistance[0], currentDistance))
+
+                        ordenedList = [(b, a) for a, b in ordenedList]
+                        ordenedList.sort()
+                        ordenedList = [(a, b) for b, a in ordenedList]
+                    if nodeWithDistance == finalNode:
+                        flag = False
+                        break
+            strDistancesArray = pformat(distancesArray, width=40, indent=1)
+            print("ARREGLO DE DISTANCIAS: \n")
+            print(strDistancesArray)
+            strWayArray = pformat(wayArray, width=40, indent=1)
+            print("ARREGLO DE RECORRIDO: \n")
+            print(strWayArray, "\n\n")
+
+            dijkstraGraph = dict()
+            self.fillDijkstraGraph(finalNode, initialNode, wayArray, dijkstraGraph)
+            self.printAGenericGraph(dijkstraGraph)
+            print(self.graphOfCountries)
+            print(dijkstraGraph)
+    #showDijkstra
+
+    def printAGenericGraph(self, auxGraph):
+        self.pen.setWidth(5)
+        color = QColor(51, 0, 0)
+        self.pen.setColor(color)
+
+        for vertice, list in auxGraph.items():
+            self.scene.addEllipse(vertice[0], vertice[1], 6, 6, self.pen)
+            for listValue in list:
+                otherVertice = listValue[0]
+                self.scene.addLine(vertice[0] + 3, vertice[1] + 3,
+                                    otherVertice[0] + 3, otherVertice[1] + 3, self.pen)
+    #printAuxGraph
+
+    def fillDijkstraGraph(self, node, initialNode, wayArray, dijkstraGraph):
+        if node != initialNode:
+
+            for data in self.graphOfCountries[node]:
+                nodeOfGCountries = ((data[0][0],data[0][1]),data[1])
+                if nodeOfGCountries[0] == wayArray[node]:
+                    if node in dijkstraGraph:
+                        dijkstraGraph[node].append(nodeOfGCountries)
+                    else:
+                        dijkstraGraph[node] = [nodeOfGCountries]
+            self.fillDijkstraGraph(wayArray[node], initialNode, wayArray, dijkstraGraph)
+    #fillDijkstraGraph
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

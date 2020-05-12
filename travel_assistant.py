@@ -30,6 +30,8 @@ class Ui_MainWindow(object):
         self.load_Data = QAction(MainWindow)
         self.load_Data.setObjectName(u"load_Data")
         self.load_Data.setIcon(icon)
+        self.actionDijkstra = QAction(MainWindow)
+        self.actionDijkstra.setObjectName(u"actionDijkstra")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -571,10 +573,11 @@ class Ui_MainWindow(object):
 
         self.menubar.addAction(self.menuFile.menuAction())
         self.menuFile.addAction(self.load_Data)
+        self.menuFile.addAction(self.actionDijkstra)
 
         self.retranslateUi(MainWindow)
 
-        self.views.setCurrentIndex(1)
+        self.views.setCurrentIndex(2)
         self.travel_button.setDefault(True)
 
 
@@ -590,6 +593,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(shortcut)
         self.load_Data.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+O", None))
 #endif // QT_CONFIG(shortcut)
+        self.actionDijkstra.setText(QCoreApplication.translate("MainWindow", u"Dijkstra", None))
         self.travel_button.setText(QCoreApplication.translate("MainWindow", u"TRAVEL", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"First time traveling with us?", None))
         self.label_6.setText("")
