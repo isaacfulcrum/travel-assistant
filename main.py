@@ -46,6 +46,7 @@ class mainWindow(QMainWindow):
 
 
         self.ui.actionDijkstra.triggered.connect(self.showDijkstra)
+        self.ui.btnResetMap.clicked.connect(self.resetMap)
 
     def loadData(self):
         if os.path.exists(self.path) and os.stat(self.path).st_size != 0:
@@ -135,8 +136,6 @@ class mainWindow(QMainWindow):
 
     @Slot()
     def drawGraph(self):
-        # self.countries.clear()
-        # self.loadData()
         self.pen.setWidth(1)
         self.pen.setColor(QColor(0,0,0))
         self.scene.addEllipse(0, 0, 1, 1, self.pen)
@@ -144,13 +143,26 @@ class mainWindow(QMainWindow):
         #Esto es para tener una zona de trabajo de 950x447
         print(self.scene.height())
         print(self.scene.width())
-
+        font = QFont()
+        font.setPixelSize(8)
         for node in self.countries:
             origin = (node["coordinates"][0],node["coordinates"][1])
             if origin not in self.graphOfCountries:
                 self.graphOfCountries[origin] = []
             for adjacencies in node["adjacencies"]:
                 self.graphOfCountries[origin].append(adjacencies)
+
+        distances = []
+        for data, list in self.graphOfCountries.items():
+            for data2 in list:
+                distances.append(["$"+str(data2[1]), (data[0]+data2[0][0])/2, (data[1]+data2[0][1])/2])
+
+        for d1 in distances:
+            for d2 in distances:
+                if d1 != d2:
+                    if d1[1] == d2[1] and d1[2] == d2[2]:
+                        d2[1] = d2[1] - 7
+                        d2[2] = d2[2] - 7
 
         for country, adjacencies in self.graphOfCountries.items():
             self.pen.setWidth(5)
@@ -164,6 +176,10 @@ class mainWindow(QMainWindow):
             for element in adjacencies:
                 otherCountry = element[0]
                 self.scene.addLine(country[0]+1,country[1]+1, otherCountry[0]+1,otherCountry[1]+1, self.pen)
+                dataD = distances.pop(0)
+                distance = self.scene.addText(dataD[0], font)
+                distance.setX(dataD[1])
+                distance.setY(dataD[2])
     #drawGraph
 
     @Slot()
@@ -202,18 +218,11 @@ class mainWindow(QMainWindow):
                     if nodeWithDistance == finalNode:
                         flag = False
                         break
-            strDistancesArray = pformat(distancesArray, width=40, indent=1)
-            print("ARREGLO DE DISTANCIAS: \n")
-            print(strDistancesArray)
-            strWayArray = pformat(wayArray, width=40, indent=1)
-            print("ARREGLO DE RECORRIDO: \n")
-            print(strWayArray, "\n\n")
 
             dijkstraGraph = dict()
             self.fillDijkstraGraph(finalNode, initialNode, wayArray, dijkstraGraph)
             self.printAGenericGraph(dijkstraGraph)
-            print(self.graphOfCountries)
-            print(dijkstraGraph)
+            self.scene.addEllipse(initialNode[0], initialNode[1], 6, 6, self.pen)
     #showDijkstra
 
     def printAGenericGraph(self, auxGraph):
@@ -241,6 +250,18 @@ class mainWindow(QMainWindow):
                         dijkstraGraph[node] = [nodeOfGCountries]
             self.fillDijkstraGraph(wayArray[node], initialNode, wayArray, dijkstraGraph)
     #fillDijkstraGraph
+
+    def wheelEvent(self, event):
+        if (event.delta() > 0):
+            self.ui.gvWorldMap.scale(1.2, 1.2)
+        else:
+            self.ui.gvWorldMap.scale(0.8, 0.8)
+    # wheelEvent
+
+    @Slot()
+    def resetMap(self):
+        self.ui.gvWorldMap.setTransform(QTransform())
+    #resetMap
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

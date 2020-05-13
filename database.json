@@ -49,7 +49,7 @@
                "clothes": 1
           },
           "asd": {
-               "budget": 231,
+               "budget": 12,
                "food": 1,
                "places": 1,
                "clothes": 1
@@ -97,7 +97,7 @@
                "clothes": 1
           },
           "asdas": {
-               "budget": 12,
+               "budget": 123,
                "food": 1,
                "places": 1,
                "clothes": 1
@@ -127,13 +127,13 @@
                "clothes": 1
           },
           "sadas": {
-               "budget": 12,
+               "budget": 123,
                "food": 1,
                "places": 1,
                "clothes": 1
           },
           "adas": {
-               "budget": 12,
+               "budget": 123,
                "food": 1,
                "places": 1,
                "clothes": 1
@@ -146,6 +146,72 @@
           },
           "aasda": {
                "budget": 12,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "webos": {
+               "budget": 123,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "qwq": {
+               "budget": 12,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "123": {
+               "budget": 123,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "wda": {
+               "budget": 12,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "sdas": {
+               "budget": 123,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "dsada": {
+               "budget": 12,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "dasdsadas": {
+               "budget": 123,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "adasd": {
+               "budget": 123,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "adasda": {
+               "budget": 2321,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "asdsadsa": {
+               "budget": 12312,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "asasd": {
+               "budget": 123,
                "food": 1,
                "places": 1,
                "clothes": 1

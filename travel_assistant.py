@@ -422,10 +422,6 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.gridLayout_6 = QGridLayout(self.frame_2)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.horizontalSpacer_11 = QSpacerItem(120, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_6.addItem(self.horizontalSpacer_11, 0, 0, 1, 2)
-
         self.label = QLabel(self.frame_2)
         self.label.setObjectName(u"label")
         font2 = QFont()
@@ -553,6 +549,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.listWidget, 1, 0, 2, 1)
 
+        self.horizontalSpacer_11 = QSpacerItem(120, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_6.addItem(self.horizontalSpacer_11, 0, 0, 1, 2)
+
+        self.btnResetMap = QPushButton(self.frame_2)
+        self.btnResetMap.setObjectName(u"btnResetMap")
+
+        self.gridLayout_6.addWidget(self.btnResetMap, 0, 4, 1, 1)
+
 
         self.gridLayout_4.addWidget(self.frame_2, 0, 1, 1, 1)
 
@@ -633,6 +638,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Arrival:", None))
         self.radioButton_3.setText(QCoreApplication.translate("MainWindow", u"Distance", None))
         self.cancel_button.setText(QCoreApplication.translate("MainWindow", u"CANCEL", None))
+        self.btnResetMap.setText(QCoreApplication.translate("MainWindow", u"Reset Map", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
     # retranslateUi
 
