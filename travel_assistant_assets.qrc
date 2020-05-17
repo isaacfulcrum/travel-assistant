@@ -1,14 +1,13 @@
 <RCC>
   <qresource prefix="Images">
+    <file>assets/city_map.jpg</file>
     <file>assets/travelStamps.jpg</file>
     <file>assets/star.png</file>
     <file>assets/worldmap.jpg</file>
     <file>assets/plane_vector.png</file>
-    <file>assets/worldmap.png</file>
-    <file>assets/plane_2.png</file>
-    <file>assets/plane.png</file>
   </qresource>
   <qresource prefix="Icons">
+    <file>assets/backIcon.png</file>
     <file>assets/planeIcon.png</file>
     <file>assets/foodIcon.png</file>
     <file>assets/clothesIcon.png</file>

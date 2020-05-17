@@ -215,11 +215,23 @@
                "food": 1,
                "places": 1,
                "clothes": 1
+          },
+          "1": {
+               "budget": 1,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "11": {
+               "budget": 1,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
           }
      },
      "Countries": [
           {
-               "name": "M\u00c3\u00a9xico",
+               "name": "Mexico",
                "starsClothes": 3,
                "starsFood": 5,
                "starsTourism": 4,
@@ -814,7 +826,7 @@
                ]
           },
           {
-               "name": "Russian",
+               "name": "Russia",
                "starsClothes": 3,
                "starsFood": 3,
                "starsTourism": 4,

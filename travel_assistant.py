@@ -27,11 +27,6 @@ class Ui_MainWindow(object):
         icon.addFile(u":/Icons/assets/planeIcon.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setLayoutDirection(Qt.LeftToRight)
-        self.load_Data = QAction(MainWindow)
-        self.load_Data.setObjectName(u"load_Data")
-        self.load_Data.setIcon(icon)
-        self.actionDijkstra = QAction(MainWindow)
-        self.actionDijkstra.setObjectName(u"actionDijkstra")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -96,6 +91,117 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
 
         self.views.addWidget(self.welcome)
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.gridLayout_12 = QGridLayout(self.page)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.frame_5 = QFrame(self.page)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setStyleSheet(u"border-image:url(:/Images/assets/city_map.jpg);\n"
+"")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.gridLayout_14 = QGridLayout(self.frame_5)
+        self.gridLayout_14.setObjectName(u"gridLayout_14")
+        self.backbutton_1 = QPushButton(self.frame_5)
+        self.backbutton_1.setObjectName(u"backbutton_1")
+        self.backbutton_1.setMinimumSize(QSize(0, 40))
+        self.backbutton_1.setMaximumSize(QSize(100, 16777215))
+        font1 = QFont()
+        font1.setFamily(u"News706 BT")
+        font1.setPointSize(9)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.backbutton_1.setFont(font1)
+        self.backbutton_1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.backbutton_1.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(30, 177, 167);")
+        icon1 = QIcon()
+        icon1.addFile(u":/Icons/assets/backIcon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.backbutton_1.setIcon(icon1)
+
+        self.gridLayout_14.addWidget(self.backbutton_1, 0, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 88, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_14.addItem(self.verticalSpacer_4, 1, 0, 1, 1)
+
+        self.horizontalSpacer_17 = QSpacerItem(134, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_14.addItem(self.horizontalSpacer_17, 2, 0, 1, 1)
+
+        self.frame_6 = QFrame(self.frame_5)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setMinimumSize(QSize(660, 260))
+        self.frame_6.setMaximumSize(QSize(700, 300))
+        self.frame_6.setStyleSheet(u"border-image:None;\n"
+"background-color: rgb(0, 0, 0);")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.gridLayout_13 = QGridLayout(self.frame_6)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.label_16 = QLabel(self.frame_6)
+        self.label_16.setObjectName(u"label_16")
+        font2 = QFont()
+        font2.setFamily(u"News706 BT")
+        font2.setPointSize(12)
+        font2.setBold(True)
+        font2.setWeight(75)
+        self.label_16.setFont(font2)
+        self.label_16.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(255, 255, 255);")
+        self.label_16.setAlignment(Qt.AlignCenter)
+        self.label_16.setWordWrap(True)
+
+        self.gridLayout_13.addWidget(self.label_16, 0, 0, 1, 1)
+
+
+        self.gridLayout_14.addWidget(self.frame_6, 2, 1, 1, 3)
+
+        self.horizontalSpacer_18 = QSpacerItem(134, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_14.addItem(self.horizontalSpacer_18, 2, 4, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 87, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_14.addItem(self.verticalSpacer_5, 3, 2, 1, 1)
+
+        self.horizontalSpacer_20 = QSpacerItem(134, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_14.addItem(self.horizontalSpacer_20, 4, 0, 1, 1)
+
+        self.adventure_button = QPushButton(self.frame_5)
+        self.adventure_button.setObjectName(u"adventure_button")
+        self.adventure_button.setMinimumSize(QSize(200, 100))
+        self.adventure_button.setFont(font1)
+        self.adventure_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.adventure_button.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(127, 7, 179);")
+
+        self.gridLayout_14.addWidget(self.adventure_button, 4, 1, 1, 1)
+
+        self.horizontalSpacer_19 = QSpacerItem(245, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_14.addItem(self.horizontalSpacer_19, 4, 2, 1, 1)
+
+        self.personalized_button = QPushButton(self.frame_5)
+        self.personalized_button.setObjectName(u"personalized_button")
+        self.personalized_button.setMinimumSize(QSize(200, 100))
+        self.personalized_button.setFont(font1)
+        self.personalized_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.personalized_button.setStyleSheet(u"background-color: rgb(113, 255, 62);\n"
+"border-image: None;")
+
+        self.gridLayout_14.addWidget(self.personalized_button, 4, 3, 1, 1)
+
+        self.horizontalSpacer_21 = QSpacerItem(134, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_14.addItem(self.horizontalSpacer_21, 4, 4, 1, 1)
+
+
+        self.gridLayout_12.addWidget(self.frame_5, 0, 1, 1, 1)
+
+        self.views.addWidget(self.page)
         self.users = QWidget()
         self.users.setObjectName(u"users")
         self.gridLayout_7 = QGridLayout(self.users)
@@ -108,9 +214,25 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.gridLayout_11 = QGridLayout(self.frame_3)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.backbutton_2 = QPushButton(self.frame_3)
+        self.backbutton_2.setObjectName(u"backbutton_2")
+        self.backbutton_2.setMinimumSize(QSize(0, 40))
+        self.backbutton_2.setMaximumSize(QSize(100, 16777215))
+        self.backbutton_2.setFont(font1)
+        self.backbutton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.backbutton_2.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(30, 177, 167);")
+        self.backbutton_2.setIcon(icon1)
+
+        self.gridLayout_11.addWidget(self.backbutton_2, 0, 0, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 83, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_11.addItem(self.verticalSpacer_3, 1, 0, 1, 1)
+
         self.horizontalSpacer_13 = QSpacerItem(154, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_11.addItem(self.horizontalSpacer_13, 0, 0, 1, 1)
+        self.gridLayout_11.addItem(self.horizontalSpacer_13, 2, 0, 1, 1)
 
         self.frame_4 = QFrame(self.frame_3)
         self.frame_4.setObjectName(u"frame_4")
@@ -125,11 +247,6 @@ class Ui_MainWindow(object):
         self.groupBox_3.setObjectName(u"groupBox_3")
         self.groupBox_3.setMinimumSize(QSize(600, 350))
         self.groupBox_3.setMaximumSize(QSize(800, 350))
-        font1 = QFont()
-        font1.setFamily(u"News706 BT")
-        font1.setPointSize(9)
-        font1.setBold(True)
-        font1.setWeight(75)
         self.groupBox_3.setFont(font1)
         self.groupBox_3.setStyleSheet(u"border-image:None;\n"
 "background-color:rgb(66, 148, 170);\n"
@@ -200,6 +317,7 @@ class Ui_MainWindow(object):
         self.ready_button.setObjectName(u"ready_button")
         self.ready_button.setMaximumSize(QSize(100, 50))
         self.ready_button.setFont(font1)
+        self.ready_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.ready_button.setStyleSheet(u"border-image: None\n"
 ";")
         self.ready_button.setIcon(icon)
@@ -401,11 +519,15 @@ class Ui_MainWindow(object):
         self.gridLayout_10.addWidget(self.groupBox_3, 0, 0, 1, 1)
 
 
-        self.gridLayout_11.addWidget(self.frame_4, 0, 1, 1, 1)
+        self.gridLayout_11.addWidget(self.frame_4, 2, 1, 1, 1)
 
         self.horizontalSpacer_14 = QSpacerItem(154, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_11.addItem(self.horizontalSpacer_14, 0, 2, 1, 1)
+        self.gridLayout_11.addItem(self.horizontalSpacer_14, 2, 2, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 88, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_11.addItem(self.verticalSpacer_2, 3, 1, 1, 1)
 
 
         self.gridLayout_7.addWidget(self.frame_3, 0, 0, 1, 1)
@@ -418,21 +540,41 @@ class Ui_MainWindow(object):
         self.frame_2 = QFrame(self.worldTour)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setLayoutDirection(Qt.LeftToRight)
+        self.frame_2.setStyleSheet(u"QFrame \n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.1875, x2:1, y2:1, stop:0 rgba(49, 139, 180, 255), stop:1 rgba(0, 0, 0, 255));\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.gridLayout_6 = QGridLayout(self.frame_2)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.label = QLabel(self.frame_2)
-        self.label.setObjectName(u"label")
-        font2 = QFont()
-        font2.setFamily(u"News706 BT")
-        font2.setPointSize(24)
-        font2.setBold(True)
-        font2.setWeight(75)
-        self.label.setFont(font2)
-        self.label.setAlignment(Qt.AlignCenter)
+        self.backbutton_3 = QPushButton(self.frame_2)
+        self.backbutton_3.setObjectName(u"backbutton_3")
+        self.backbutton_3.setMinimumSize(QSize(0, 40))
+        self.backbutton_3.setMaximumSize(QSize(100, 16777215))
+        self.backbutton_3.setFont(font1)
+        self.backbutton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.backbutton_3.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(30, 177, 167);")
+        self.backbutton_3.setIcon(icon1)
 
-        self.gridLayout_6.addWidget(self.label, 0, 2, 1, 1)
+        self.gridLayout_6.addWidget(self.backbutton_3, 0, 0, 1, 2)
+
+        self.btnResetMap = QPushButton(self.frame_2)
+        self.btnResetMap.setObjectName(u"btnResetMap")
+        font3 = QFont()
+        font3.setFamily(u"News706 BT")
+        font3.setPointSize(10)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.btnResetMap.setFont(font3)
+        self.btnResetMap.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btnResetMap.setStyleSheet(u"background-color: rgb(107, 48, 255);")
+
+        self.gridLayout_6.addWidget(self.btnResetMap, 0, 4, 1, 1)
 
         self.gvWorldMap = QGraphicsView(self.frame_2)
         self.gvWorldMap.setObjectName(u"gvWorldMap")
@@ -445,118 +587,96 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_6.addWidget(self.gvWorldMap, 1, 1, 1, 3)
-
-        self.horizontalSpacer_12 = QSpacerItem(271, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_6.addItem(self.horizontalSpacer_12, 0, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.gvWorldMap, 1, 1, 1, 4)
 
         self.groupBox = QGroupBox(self.frame_2)
         self.groupBox.setObjectName(u"groupBox")
         self.groupBox.setMinimumSize(QSize(0, 100))
         self.groupBox.setMaximumSize(QSize(950, 16777215))
+        self.groupBox.setStyleSheet(u"background-color:  rgb(255, 255, 255);")
         self.gridLayout_5 = QGridLayout(self.groupBox)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.label_2 = QLabel(self.groupBox)
-        self.label_2.setObjectName(u"label_2")
+        self.label_3 = QLabel(self.groupBox)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setMaximumSize(QSize(70, 16777215))
+        self.label_3.setFont(font1)
+        self.label_3.setStyleSheet(u"background-color:  None;")
+        self.label_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_5.addWidget(self.label_2, 0, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.label_3, 0, 0, 1, 1)
 
-        self.lineEdit = QLineEdit(self.groupBox)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(0, 0))
+        self.departure = QComboBox(self.groupBox)
+        self.departure.setObjectName(u"departure")
+        self.departure.setMinimumSize(QSize(0, 25))
+        self.departure.setStyleSheet(u"background-color:  None;")
 
-        self.gridLayout_5.addWidget(self.lineEdit, 0, 1, 1, 1)
-
-        self.horizontalSpacer_5 = QSpacerItem(73, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_5, 0, 2, 1, 1)
-
-        self.label_5 = QLabel(self.groupBox)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout_5.addWidget(self.label_5, 0, 3, 1, 1)
-
-        self.horizontalSpacer_6 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_6, 0, 4, 1, 1)
+        self.gridLayout_5.addWidget(self.departure, 0, 1, 1, 1)
 
         self.start_button = QPushButton(self.groupBox)
         self.start_button.setObjectName(u"start_button")
+        self.start_button.setMinimumSize(QSize(200, 70))
+        self.start_button.setMaximumSize(QSize(16777215, 16777215))
+        self.start_button.setFont(font3)
+        self.start_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.start_button.setStyleSheet(u"background-color:  rgb(57, 191, 42);")
 
-        self.gridLayout_5.addWidget(self.start_button, 0, 5, 1, 1)
-
-        self.label_3 = QLabel(self.groupBox)
-        self.label_3.setObjectName(u"label_3")
-
-        self.gridLayout_5.addWidget(self.label_3, 1, 0, 1, 1)
-
-        self.comboBox = QComboBox(self.groupBox)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMinimumSize(QSize(0, 0))
-
-        self.gridLayout_5.addWidget(self.comboBox, 1, 1, 1, 1)
-
-        self.horizontalSpacer_3 = QSpacerItem(73, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_3, 1, 2, 1, 1)
-
-        self.radioButton = QRadioButton(self.groupBox)
-        self.radioButton.setObjectName(u"radioButton")
-
-        self.gridLayout_5.addWidget(self.radioButton, 1, 3, 1, 1)
-
-        self.horizontalSpacer_7 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_7, 1, 4, 1, 1)
-
-        self.label_4 = QLabel(self.groupBox)
-        self.label_4.setObjectName(u"label_4")
-
-        self.gridLayout_5.addWidget(self.label_4, 2, 0, 1, 1)
-
-        self.comboBox_2 = QComboBox(self.groupBox)
-        self.comboBox_2.setObjectName(u"comboBox_2")
-        self.comboBox_2.setMinimumSize(QSize(0, 0))
-
-        self.gridLayout_5.addWidget(self.comboBox_2, 2, 1, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(73, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_4, 2, 2, 1, 1)
-
-        self.radioButton_3 = QRadioButton(self.groupBox)
-        self.radioButton_3.setObjectName(u"radioButton_3")
-
-        self.gridLayout_5.addWidget(self.radioButton_3, 2, 3, 1, 1)
-
-        self.horizontalSpacer_8 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_8, 2, 4, 1, 1)
+        self.gridLayout_5.addWidget(self.start_button, 0, 2, 2, 1)
 
         self.cancel_button = QPushButton(self.groupBox)
         self.cancel_button.setObjectName(u"cancel_button")
+        self.cancel_button.setMinimumSize(QSize(200, 70))
+        self.cancel_button.setFont(font3)
+        self.cancel_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cancel_button.setStyleSheet(u"background-color:  rgb(209, 6, 43);")
 
-        self.gridLayout_5.addWidget(self.cancel_button, 2, 5, 1, 1)
+        self.gridLayout_5.addWidget(self.cancel_button, 0, 3, 2, 1)
+
+        self.label_4 = QLabel(self.groupBox)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setFont(font1)
+        self.label_4.setStyleSheet(u"background-color:  None;")
+        self.label_4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_5.addWidget(self.label_4, 1, 0, 1, 1)
+
+        self.arrival = QComboBox(self.groupBox)
+        self.arrival.setObjectName(u"arrival")
+        self.arrival.setMinimumSize(QSize(0, 25))
+        self.arrival.setStyleSheet(u"background-color:  None;")
+
+        self.gridLayout_5.addWidget(self.arrival, 1, 1, 1, 1)
 
 
-        self.gridLayout_6.addWidget(self.groupBox, 2, 1, 1, 3)
+        self.gridLayout_6.addWidget(self.groupBox, 2, 1, 1, 4)
+
+        self.horizontalSpacer_12 = QSpacerItem(271, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_6.addItem(self.horizontalSpacer_12, 0, 3, 1, 1)
+
+        self.label = QLabel(self.frame_2)
+        self.label.setObjectName(u"label")
+        font4 = QFont()
+        font4.setFamily(u"News706 BT")
+        font4.setPointSize(24)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.label.setFont(font4)
+        self.label.setStyleSheet(u"background-color:  None;\n"
+"\n"
+"\n"
+"\n"
+"")
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_6.addWidget(self.label, 0, 2, 1, 1)
 
         self.listWidget = QListWidget(self.frame_2)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setMinimumSize(QSize(0, 0))
         self.listWidget.setMaximumSize(QSize(275, 16777215))
+        self.listWidget.setStyleSheet(u"background-color:  None;")
 
         self.gridLayout_6.addWidget(self.listWidget, 1, 0, 2, 1)
-
-        self.horizontalSpacer_11 = QSpacerItem(120, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_6.addItem(self.horizontalSpacer_11, 0, 0, 1, 2)
-
-        self.btnResetMap = QPushButton(self.frame_2)
-        self.btnResetMap.setObjectName(u"btnResetMap")
-
-        self.gridLayout_6.addWidget(self.btnResetMap, 0, 4, 1, 1)
 
 
         self.gridLayout_4.addWidget(self.frame_2, 0, 1, 1, 1)
@@ -569,20 +689,14 @@ class Ui_MainWindow(object):
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 1000, 21))
-        self.menuFile = QMenu(self.menubar)
-        self.menuFile.setObjectName(u"menuFile")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
-        self.menubar.addAction(self.menuFile.menuAction())
-        self.menuFile.addAction(self.load_Data)
-        self.menuFile.addAction(self.actionDijkstra)
-
         self.retranslateUi(MainWindow)
 
-        self.views.setCurrentIndex(2)
+        self.views.setCurrentIndex(1)
         self.travel_button.setDefault(True)
 
 
@@ -591,15 +705,20 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Travel Assistant", None))
-        self.load_Data.setText(QCoreApplication.translate("MainWindow", u"Load database", None))
-#if QT_CONFIG(tooltip)
-        self.load_Data.setToolTip(QCoreApplication.translate("MainWindow", u"Load database", None))
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(shortcut)
-        self.load_Data.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+O", None))
-#endif // QT_CONFIG(shortcut)
-        self.actionDijkstra.setText(QCoreApplication.translate("MainWindow", u"Dijkstra", None))
         self.travel_button.setText(QCoreApplication.translate("MainWindow", u"TRAVEL", None))
+        self.backbutton_1.setText(QCoreApplication.translate("MainWindow", u"Back", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"WELCOME TO TRAVEL ASSISTANT! \n"
+"\n"
+" We are so excited to help you choose the best option for your new adventure, but first you need to make the decision of how you wanna travel. \n"
+"\n"
+"  ADVENTURE TRIP\n"
+" If you travel with this option, you'll be able to choose a departure and arrival place. We'll make sure that you visit different countries and cultures on your way to your destination, while charging as little as possible :) \n"
+"\n"
+" PERSONALIZED TRIP \n"
+" Coming soon...", None))
+        self.adventure_button.setText(QCoreApplication.translate("MainWindow", u"ADVENTURE TRIP", None))
+        self.personalized_button.setText(QCoreApplication.translate("MainWindow", u"PERSONALIZED TRIP", None))
+        self.backbutton_2.setText(QCoreApplication.translate("MainWindow", u"Back", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"First time traveling with us?", None))
         self.label_6.setText("")
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Name:", None))
@@ -628,17 +747,13 @@ class Ui_MainWindow(object):
         self.label_14.setText("")
         self.star3_4.setText("")
         self.star3_5.setText("")
-        self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Reservation", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Name:", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Specifications", None))
-        self.start_button.setText(QCoreApplication.translate("MainWindow", u"START", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Departure:", None))
-        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Money", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Arrival:", None))
-        self.radioButton_3.setText(QCoreApplication.translate("MainWindow", u"Distance", None))
-        self.cancel_button.setText(QCoreApplication.translate("MainWindow", u"CANCEL", None))
+        self.backbutton_3.setText(QCoreApplication.translate("MainWindow", u"Back", None))
         self.btnResetMap.setText(QCoreApplication.translate("MainWindow", u"Reset Map", None))
-        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
+        self.groupBox.setTitle("")
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Departure:", None))
+        self.start_button.setText(QCoreApplication.translate("MainWindow", u"START", None))
+        self.cancel_button.setText(QCoreApplication.translate("MainWindow", u"CANCEL", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Arrival:", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
     # retranslateUi
 
