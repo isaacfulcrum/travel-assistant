@@ -279,7 +279,6 @@ class mainWindow(QMainWindow):
 
             dijkstraGraph = dict()
             self.fillDijkstraGraph(finalNode, initialNode, wayArray, dijkstraGraph)
-            print(dijkstraGraph)
             self.printGraph(dijkstraGraph)
             self.scene.addEllipse(initialNode[0], initialNode[1], 6, 6, self.pen)
 
@@ -304,29 +303,37 @@ class mainWindow(QMainWindow):
 
         self.ui.listWidget.clear()
 
-        auxGraph_sort = sorted(auxGraph.items())
-        print(auxGraph_sort)
-        for vertice, otherVertice in auxGraph.items():
+        auxGraph_sort = []
+        for node1, node2 in auxGraph.items():
+            auxGraph_sort.append((node1,node2))
+        auxGraph_sort.reverse()
+        auxGraph_sort = [(n1, n2) for n2, n1 in auxGraph_sort]
 
+        for vertice, otherVertice in auxGraph_sort:
             self.scene.addEllipse(vertice[0], vertice[1], 6, 6, self.pen)
-
+            self.scene.addEllipse(otherVertice[0], otherVertice[1], 6, 6, self.pen)
             self.scene.addLine(vertice[0] + 3, vertice[1] + 3,
                                otherVertice[0] + 3, otherVertice[1] + 3, self.pen)
 
-        #         # This puts the names of the countries in the list
-        #         for elem in self.countries:
-        #
-        #             # conditional that writes the first country of the graph
-        #             if first and elem["coordinates"][0] == vertice[0] and elem["coordinates"][1] == vertice[1]:
-        #                 aux = str(elem["name"]) + ':'
-        #                 countriesForlw["ultimo"] = aux
-        #                 self.ui.listWidget.addItem(aux)
-        #                 first = False
-        #
-        #             elif otherVertice[0] == elem["coordinates"][0] and otherVertice[1] == elem["coordinates"][1]:
-        #                 aux = str('    ' + elem["name"]) + '  -  $' + str(listValue[1])
-        #                 self.ui.listWidget.addItem(aux)
-        # print(countriesForlw)
+            # This puts the names of the countries in the list
+            for elem in self.countries:
+
+                # conditional that writes the first country of the graph
+                if first and elem["coordinates"][0] == vertice[0] and elem["coordinates"][1] == vertice[1]:
+                    aux = str(elem["name"]) + ':'
+                    self.ui.listWidget.addItem(aux)
+                    first = False
+
+                elif otherVertice[0] == elem["coordinates"][0] and otherVertice[1] == elem["coordinates"][1]:
+                    for data in self.countries:
+                        coordinatesOfData = (data["coordinates"][0],data["coordinates"][1])
+                        if coordinatesOfData == vertice:
+                            for adj in data["adjacencies"]:
+                                if otherVertice[0] == adj[0][0] and otherVertice[1] == adj[0][1]:
+                                    aux = str('    ' + elem["name"]) + '  -  $' + str(adj[1])
+                                    self.ui.listWidget.addItem(aux)
+                                    break
+                            break
     # printGraph
 
     def wheelEvent(self, event):
