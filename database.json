@@ -151,7 +151,7 @@
                "clothes": 1
           },
           "webos": {
-               "budget": 123,
+               "budget": 321312,
                "food": 1,
                "places": 1,
                "clothes": 1
@@ -224,6 +224,36 @@
           },
           "11": {
                "budget": 1,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "Saul": {
+               "budget": 824,
+               "food": 2,
+               "places": 2,
+               "clothes": 5
+          },
+          "weev": {
+               "budget": 213,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "awdawd": {
+               "budget": 12321,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "wdawd": {
+               "budget": 123,
+               "food": 1,
+               "places": 1,
+               "clothes": 1
+          },
+          "saul": {
+               "budget": 1222,
                "food": 1,
                "places": 1,
                "clothes": 1

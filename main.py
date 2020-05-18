@@ -2,6 +2,7 @@ import sys
 import os
 import json
 import pathlib
+import operator
 from random import randint
 from travel_assistant import *
 from PySide2.QtWidgets import QGraphicsScene
@@ -83,6 +84,8 @@ class mainWindow(QMainWindow):
             self.ui.views.setCurrentIndex(1)
         elif self.sender().objectName() == "ready_button":
             self.addNewUser()
+            self.ui.arrival.setDisabled(True)
+            self.resetMap()
             self.ui.views.setCurrentIndex(3)
         elif self.sender().objectName() == "adventure_button":
             self.ui.views.setCurrentIndex(3)
@@ -221,14 +224,16 @@ class mainWindow(QMainWindow):
         arrivalName = self.ui.arrival.currentText()
         initialNode = ()
         finalNode = ()
+        if self.ui.arrival.isEnabled() == False:
+            userBudget = int(self.ui.budgetText.text())
 
         for country in self.countries:
-            if country["name"] == departureName:
-                finalNode = (country["coordinates"][0], country["coordinates"][1])
             if country["name"] == arrivalName:
+                finalNode = (country["coordinates"][0], country["coordinates"][1])
+            if country["name"] == departureName:
                 initialNode = (country["coordinates"][0], country["coordinates"][1])
 
-        if initialNode in self.graphOfCountries and finalNode in self.graphOfCountries:
+        if initialNode in self.graphOfCountries:
             distancesArray = dict()
             ordenedList = []
             wayArray = dict()
@@ -257,12 +262,24 @@ class mainWindow(QMainWindow):
                         ordenedList = [(b, a) for a, b in ordenedList]
                         ordenedList.sort()
                         ordenedList = [(a, b) for b, a in ordenedList]
-                    if nodeWithDistance == finalNode:
+                    if nodeWithDistance[0] == finalNode:
                         flag = False
                         break
 
+            if flag:
+                distancesArray_Sort = sorted(distancesArray.items(), key=operator.itemgetter(1))
+                for i in range(len(distancesArray_Sort)):
+                    if (i+1) != len(distancesArray_Sort):
+                        if userBudget >= distancesArray_Sort[i][1] \
+                                and userBudget <= distancesArray_Sort[i+1][1]:
+                            finalNode = distancesArray_Sort[i][0]
+                            break
+                    else:
+                        finalNode = distancesArray_Sort[i][0]
+
             dijkstraGraph = dict()
             self.fillDijkstraGraph(finalNode, initialNode, wayArray, dijkstraGraph)
+            print(dijkstraGraph)
             self.printGraph(dijkstraGraph)
             self.scene.addEllipse(initialNode[0], initialNode[1], 6, 6, self.pen)
 
@@ -272,12 +289,9 @@ class mainWindow(QMainWindow):
         if node != initialNode:
 
             for data in self.graphOfCountries[node]:
-                nodeOfGCountries = ((data[0][0], data[0][1]), data[1])
-                if nodeOfGCountries[0] == wayArray[node]:
-                    if node in dijkstraGraph:
-                        dijkstraGraph[node].append(nodeOfGCountries)
-                    else:
-                        dijkstraGraph[node] = [nodeOfGCountries]
+                nodeOfGCountries = (data[0][0], data[0][1])
+                if nodeOfGCountries == wayArray[node]:
+                    dijkstraGraph[node] = nodeOfGCountries
             self.fillDijkstraGraph(wayArray[node], initialNode, wayArray, dijkstraGraph)
 
     # fillDijkstraGraph
@@ -290,28 +304,29 @@ class mainWindow(QMainWindow):
 
         self.ui.listWidget.clear()
 
-        for vertice, list in auxGraph.items():
+        auxGraph_sort = sorted(auxGraph.items())
+        print(auxGraph_sort)
+        for vertice, otherVertice in auxGraph.items():
 
             self.scene.addEllipse(vertice[0], vertice[1], 6, 6, self.pen)
-            for listValue in list:
 
-                otherVertice = listValue[0]
-                self.scene.addLine(vertice[0] + 3, vertice[1] + 3,
-                                   otherVertice[0] + 3, otherVertice[1] + 3, self.pen)
+            self.scene.addLine(vertice[0] + 3, vertice[1] + 3,
+                               otherVertice[0] + 3, otherVertice[1] + 3, self.pen)
 
-                # This puts the names of the countries in the list
-                for elem in self.countries:
-
-                    # conditional that writes the first country of the graph
-                    if first and elem["coordinates"][0] == vertice[0] and elem["coordinates"][1] == vertice[1]:
-                        aux = str(elem["name"]) + ':'
-                        self.ui.listWidget.addItem(aux)
-                        first = False
-
-                    elif otherVertice[0] == elem["coordinates"][0] and otherVertice[1] == elem["coordinates"][1]:
-                        aux = str('    ' + elem["name"]) + '  -  $' + str(elem["cost"])
-                        self.ui.listWidget.addItem(aux)
-
+        #         # This puts the names of the countries in the list
+        #         for elem in self.countries:
+        #
+        #             # conditional that writes the first country of the graph
+        #             if first and elem["coordinates"][0] == vertice[0] and elem["coordinates"][1] == vertice[1]:
+        #                 aux = str(elem["name"]) + ':'
+        #                 countriesForlw["ultimo"] = aux
+        #                 self.ui.listWidget.addItem(aux)
+        #                 first = False
+        #
+        #             elif otherVertice[0] == elem["coordinates"][0] and otherVertice[1] == elem["coordinates"][1]:
+        #                 aux = str('    ' + elem["name"]) + '  -  $' + str(listValue[1])
+        #                 self.ui.listWidget.addItem(aux)
+        # print(countriesForlw)
     # printGraph
 
     def wheelEvent(self, event):
@@ -319,13 +334,16 @@ class mainWindow(QMainWindow):
             self.ui.gvWorldMap.scale(1.2, 1.2)
         else:
             self.ui.gvWorldMap.scale(0.8, 0.8)
-
     # wheelEvent
 
     @Slot()
     def resetMap(self):
         self.ui.gvWorldMap.setTransform(QTransform())
-
+        self.scene.clear()
+        self.drawMap()
+        self.ui.listWidget.clear()
+        self.ui.departure.setCurrentIndex(-1)
+        self.ui.arrival.setCurrentIndex(-1)
     # resetMap
 
 
