@@ -300,7 +300,7 @@ class mainWindow(QMainWindow):
         color = QColor(51, 0, 0)
         self.pen.setColor(color)
         first = True
-
+        totalCost = 0
         self.ui.listWidget.clear()
 
         auxGraph_sort = []
@@ -331,9 +331,12 @@ class mainWindow(QMainWindow):
                             for adj in data["adjacencies"]:
                                 if otherVertice[0] == adj[0][0] and otherVertice[1] == adj[0][1]:
                                     aux = str('    ' + elem["name"]) + '  -  $' + str(adj[1])
+                                    totalCost += adj[1]
                                     self.ui.listWidget.addItem(aux)
                                     break
                             break
+        aux = "Total cost of the travel: " + str(totalCost)
+        self.ui.listWidget.addItem(aux)
     # printGraph
 
     def wheelEvent(self, event):
