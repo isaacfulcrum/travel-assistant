@@ -32,9 +32,11 @@ class mainWindow(QMainWindow):
         self.ui.ready_button.clicked.connect(self.changePage)
         self.ui.adventure_button.clicked.connect(self.changePage)
         self.ui.personalized_button.clicked.connect(self.changePage)
+        self.ui.countries_button.clicked.connect(self.changePage)
         self.ui.backbutton_1.clicked.connect(self.changePage)
         self.ui.backbutton_2.clicked.connect(self.changePage)
         self.ui.backbutton_3.clicked.connect(self.changePage)
+        self.ui.backbutton_4.clicked.connect(self.changePage)
 
         # Manage stars
         self.ui.clothes_sb.valueChanged.connect(self.manageStars)
@@ -55,7 +57,6 @@ class mainWindow(QMainWindow):
         self.ui.start_button.clicked.connect(self.manageMap)
         self.ui.cancel_button.clicked.connect(self.manageMap)
         self.ui.btnResetMap.clicked.connect(self.resetMap)
-        self.ui.countries_button.clicked.connect(self.showCountries)
         self.ui.departure.setCurrentIndex(-1)
         self.ui.arrival.setCurrentIndex(-1)
 
@@ -69,23 +70,13 @@ class mainWindow(QMainWindow):
         for country in self.countries:
             self.ui.departure.addItem(country["name"])
             self.ui.arrival.addItem(country["name"])
-
     # loadData
-
-    def showCountries(self):
-
-         pix = QPixmap(":/Images/assets/table.png")
-         message = QMessageBox(self)
-         message.setWindowTitle("Country information")
-         message.setIconPixmap(pix)
-         message.exec_()
 
     def saveData(self):
         self.database["Users"] = self.users
         self.database["Countries"] = self.countries
         with open(self.path, 'w') as data_file:
             json.dump(self.database, data_file, indent=5)
-
     # saveData
 
     def changePage(self):
@@ -100,15 +91,18 @@ class mainWindow(QMainWindow):
             self.ui.views.setCurrentIndex(3)
         elif self.sender().objectName() == "adventure_button":
             self.ui.views.setCurrentIndex(2)
+        elif self.sender().objectName() == "countries_button":
+            self.ui.views.setCurrentIndex(4)
         elif self.sender().objectName() == "backbutton_1":
             self.ui.views.setCurrentIndex(0)
         elif self.sender().objectName() == "backbutton_2":
             self.ui.views.setCurrentIndex(1)
         elif self.sender().objectName() == "backbutton_3":
-            self.resetMap()
+            self.clearMap()
             self.ui.arrival.setEnabled(True)
             self.ui.views.setCurrentIndex(1)
-
+        elif self.sender().objectName() == "backbutton_4":
+            self.ui.views.setCurrentIndex(3)
     # changePage
 
     def manageMap(self):
@@ -117,8 +111,7 @@ class mainWindow(QMainWindow):
             self.drawMap()
             self.showDijkstra()
         else:
-            self.resetMap()
-
+            self.clearMap()
     # manageMap
 
     def initStars(self):
@@ -126,7 +119,6 @@ class mainWindow(QMainWindow):
             for j in range(2, 6):
                 command = "self.ui.star{}_{}.hide()".format(i, j)
                 exec(command)
-
     # initStars
 
     def manageStars(self):
@@ -173,14 +165,11 @@ class mainWindow(QMainWindow):
         self.users[name]["places"] = places
         self.users[name]["clothes"] = clothes
         self.saveData()
-
     # addNewUser
 
     @Slot()
     def drawMap(self):
-
         self.graphOfCountries.clear()
-
         self.pen.setWidth(1)
         self.pen.setColor(QColor(0, 0, 0))
         self.scene.addEllipse(0, 0, 1, 1, self.pen)
@@ -196,17 +185,17 @@ class mainWindow(QMainWindow):
             for adjacencies in node["adjacencies"]:
                 self.graphOfCountries[origin].append(adjacencies)
 
-        distances = []
-        for data, list in self.graphOfCountries.items():
-            for data2 in list:
-                distances.append(["$" + str(data2[1]), (data[0] + data2[0][0]) / 2, (data[1] + data2[0][1]) / 2])
+        # distances = []
+        # for data, list in self.graphOfCountries.items():
+            # for data2 in list:
+                # distances.append(["$" + str(data2[1]), (data[0] + data2[0][0]) / 2, (data[1] + data2[0][1]) / 2])
 
-        for d1 in distances:
-            for d2 in distances:
-                if d1 != d2:
-                    if d1[1] == d2[1] and d1[2] == d2[2]:
-                        d2[1] = d2[1] - 7
-                        d2[2] = d2[2] - 7
+        # for d1 in distances:
+            # for d2 in distances:
+                # if d1 != d2:
+                    # if d1[1] == d2[1] and d1[2] == d2[2]:
+                        # d2[1] = d2[1] - 7
+                        # d2[2] = d2[2] - 7
 
         for country, adjacencies in self.graphOfCountries.items():
             self.pen.setWidth(5)
@@ -220,20 +209,19 @@ class mainWindow(QMainWindow):
             for element in adjacencies:
                 otherCountry = element[0]
                 self.scene.addLine(country[0] + 1, country[1] + 1, otherCountry[0] + 1, otherCountry[1] + 1, self.pen)
-                dataD = distances.pop(0)
-                distance = self.scene.addText(dataD[0], font)
-                distance.setX(dataD[1])
-                distance.setY(dataD[2])
-
+                # dataD = distances.pop(0)
+                # distance = self.scene.addText(dataD[0], font)
+                # distance.setX(dataD[1])
+                # distance.setY(dataD[2])
     # drawMap
 
     @Slot()
     def showDijkstra(self):
-
         departureName = self.ui.departure.currentText()
         arrivalName = self.ui.arrival.currentText()
         initialNode = ()
         finalNode = ()
+
         if self.ui.arrival.isEnabled() == False:
             userBudget = int(self.ui.budgetText.text())
         else:
@@ -307,7 +295,7 @@ class mainWindow(QMainWindow):
 
     def printGraph(self, auxGraph):
         self.pen.setWidth(5)
-        color = QColor(51, 0, 0)
+        color = QColor(255, 0, 0)
         self.pen.setColor(color)
         first = True
         totalCost = 0
@@ -347,7 +335,7 @@ class mainWindow(QMainWindow):
                                     path.append(aux)
                                     break
                             break
-        aux = "Total cost of the travel: " + str(totalCost)
+        aux = "\nTotal cost: $" + str(totalCost)
         for dataCnt in range(len(path)):
             if path[dataCnt] == auxStr:
                 self.ui.listWidget.addItem(path.pop(dataCnt))
@@ -367,12 +355,19 @@ class mainWindow(QMainWindow):
     @Slot()
     def resetMap(self):
         self.ui.gvWorldMap.setTransform(QTransform())
+        # self.scene.clear()
+        # self.drawMap()
+    # resetMap
+
+    @Slot()
+    def clearMap(self):
+        self.ui.gvWorldMap.setTransform(QTransform())
         self.scene.clear()
         self.drawMap()
         self.ui.listWidget.clear()
         self.ui.departure.setCurrentIndex(-1)
         self.ui.arrival.setCurrentIndex(-1)
-    # resetMap
+    # clearMap
 
 
 if __name__ == "__main__":

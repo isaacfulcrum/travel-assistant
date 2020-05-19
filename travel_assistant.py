@@ -690,6 +690,73 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.frame_2, 0, 1, 1, 1)
 
         self.views.addWidget(self.worldTour)
+        self.table = QWidget()
+        self.table.setObjectName(u"table")
+        self.gridLayout_15 = QGridLayout(self.table)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.frame_7 = QFrame(self.table)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setStyleSheet(u"QFrame \n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.1875, x2:1, y2:1, stop:0 rgba(49, 139, 180, 255), stop:1 rgba(0, 0, 0, 255));\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.gridLayout_16 = QGridLayout(self.frame_7)
+        self.gridLayout_16.setObjectName(u"gridLayout_16")
+        self.backbutton_4 = QPushButton(self.frame_7)
+        self.backbutton_4.setObjectName(u"backbutton_4")
+        self.backbutton_4.setMinimumSize(QSize(0, 40))
+        self.backbutton_4.setMaximumSize(QSize(100, 16777215))
+        self.backbutton_4.setFont(font1)
+        self.backbutton_4.setCursor(QCursor(Qt.PointingHandCursor))
+        self.backbutton_4.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(30, 177, 167);")
+        self.backbutton_4.setIcon(icon1)
+
+        self.gridLayout_16.addWidget(self.backbutton_4, 0, 0, 1, 1)
+
+        self.horizontalSpacer_6 = QSpacerItem(363, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_16.addItem(self.horizontalSpacer_6, 0, 1, 1, 1)
+
+        self.label_5 = QLabel(self.frame_7)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font4)
+        self.label_5.setStyleSheet(u"background-color:  None;\n"
+"\n"
+"\n"
+"\n"
+"")
+        self.label_5.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_16.addWidget(self.label_5, 0, 2, 1, 1)
+
+        self.horizontalSpacer_5 = QSpacerItem(363, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_16.addItem(self.horizontalSpacer_5, 0, 3, 1, 1)
+
+        self.label_2 = QLabel(self.frame_7)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setPixmap(QPixmap(u":/Images/assets/table.png"))
+
+        self.gridLayout_16.addWidget(self.label_2, 1, 1, 2, 3)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_16.addItem(self.horizontalSpacer_4, 1, 4, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_16.addItem(self.horizontalSpacer_3, 2, 0, 1, 1)
+
+
+        self.gridLayout_15.addWidget(self.frame_7, 0, 0, 1, 1)
+
+        self.views.addWidget(self.table)
 
         self.gridLayout.addWidget(self.views, 0, 0, 1, 1)
 
@@ -704,7 +771,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.views.setCurrentIndex(3)
+        self.views.setCurrentIndex(4)
         self.travel_button.setDefault(True)
 
 
@@ -764,5 +831,8 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
         self.backbutton_3.setText(QCoreApplication.translate("MainWindow", u"Back", None))
         self.countries_button.setText(QCoreApplication.translate("MainWindow", u"Countries", None))
+        self.backbutton_4.setText(QCoreApplication.translate("MainWindow", u"Back", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"COSTS", None))
+        self.label_2.setText("")
     # retranslateUi
 
