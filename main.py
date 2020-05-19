@@ -72,13 +72,6 @@ class mainWindow(QMainWindow):
 
     # loadData
 
-    def showCountries(self):
-        pix = QPixmap(":/Icons/assets/moneyIcon.png")
-        message = QMessageBox(self)
-        message.setWindowTitle("Country information")
-        message.setIconPixmap(pix)
-        message.exec_()
-
     def saveData(self):
         self.database["Users"] = self.users
         self.database["Countries"] = self.countries
@@ -119,6 +112,13 @@ class mainWindow(QMainWindow):
             self.resetMap()
 
     # manageMap
+
+    def showCountries(self):
+        pix = QPixmap(":/Icons/assets/moneyIcon.png")
+        message = QMessageBox(self)
+        message.setWindowTitle("Country information")
+        message.setIconPixmap(pix)
+        message.exec_()
 
     def initStars(self):
         for i in range(1, 4):
@@ -308,7 +308,7 @@ class mainWindow(QMainWindow):
 
     def printGraph(self, auxGraph):
         self.pen.setWidth(5)
-        color = QColor(51, 0, 0)
+        color = QColor(255, 0, 0)
         self.pen.setColor(color)
         first = True
         totalCost = 0
@@ -348,7 +348,7 @@ class mainWindow(QMainWindow):
                                     path.append(aux)
                                     break
                             break
-        aux = "Total cost of the travel: " + str(totalCost)
+        aux = "\nTotal cost: " + str(totalCost)
         for dataCnt in range(len(path)):
             if path[dataCnt] == auxStr:
                 self.ui.listWidget.addItem(path.pop(dataCnt))
@@ -374,7 +374,6 @@ class mainWindow(QMainWindow):
         self.ui.departure.setCurrentIndex(-1)
         self.ui.arrival.setCurrentIndex(-1)
     # resetMap
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
