@@ -1,0 +1,667 @@
+{
+     "Users": {
+          "Isaac": {
+               "budget": 1000,
+               "food": 4,
+               "places": 5,
+               "clothes": 1
+          },
+          "Isai": {
+               "budget": 800,
+               "food": 4,
+               "places": 5,
+               "clothes": 1
+          },
+          "Dany": {
+               "budget": 20000,
+               "food": 3,
+               "places": 5,
+               "clothes": 5
+          }
+     },
+     "Countries": [
+          {
+               "name": "Mexico",
+               "starsClothes": 3,
+               "starsFood": 5,
+               "starsTourism": 4,
+               "cost": 254,
+               "coordinates": [
+                    168,
+                    200
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              313,
+                              290
+                         ],
+                         324
+                    ],
+                    [
+                         [
+                              239,
+                              292
+                         ],
+                         137
+                    ],
+                    [
+                         [
+                              197,
+                              89
+                         ],
+                         764
+                    ],
+                    [
+                         [
+                              444,
+                              160
+                         ],
+                         873
+                    ]
+               ]
+          },
+          {
+               "name": "Argentina",
+               "starsClothes": 2,
+               "starsFood": 3,
+               "starsTourism": 2,
+               "cost": 600,
+               "coordinates": [
+                    277,
+                    350
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              313,
+                              290
+                         ],
+                         369
+                    ],
+                    [
+                         [
+                              239,
+                              292
+                         ],
+                         165
+                    ]
+               ]
+          },
+          {
+               "name": "Brazil",
+               "starsClothes": 3,
+               "starsFood": 3,
+               "starsTourism": 4,
+               "cost": 675,
+               "coordinates": [
+                    313,
+                    290
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              277,
+                              350
+                         ],
+                         463
+                    ],
+                    [
+                         [
+                              168,
+                              200
+                         ],
+                         367
+                    ],
+                    [
+                         [
+                              239,
+                              292
+                         ],
+                         133
+                    ],
+                    [
+                         [
+                              444,
+                              160
+                         ],
+                         777
+                    ],
+                    [
+                         [
+                              486,
+                              152
+                         ],
+                         810
+                    ],
+                    [
+                         [
+                              197,
+                              89
+                         ],
+                         647
+                    ]
+               ]
+          },
+          {
+               "name": "France",
+               "starsClothes": 4,
+               "starsFood": 2,
+               "starsTourism": 5,
+               "cost": 768,
+               "coordinates": [
+                    459,
+                    140
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              444,
+                              160
+                         ],
+                         261
+                    ],
+                    [
+                         [
+                              450,
+                              122
+                         ],
+                         325
+                    ],
+                    [
+                         [
+                              478,
+                              130
+                         ],
+                         401
+                    ],
+                    [
+                         [
+                              486,
+                              152
+                         ],
+                         397
+                    ]
+               ]
+          },
+          {
+               "name": "Spain",
+               "starsClothes": 5,
+               "starsFood": 4,
+               "starsTourism": 4,
+               "cost": 436,
+               "coordinates": [
+                    444,
+                    160
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              168,
+                              200
+                         ],
+                         764
+                    ],
+                    [
+                         [
+                              313,
+                              290
+                         ],
+                         805
+                    ],
+                    [
+                         [
+                              197,
+                              89
+                         ],
+                         678
+                    ],
+                    [
+                         [
+                              459,
+                              140
+                         ],
+                         250
+                    ],
+                    [
+                         [
+                              450,
+                              122
+                         ],
+                         300
+                    ],
+                    [
+                         [
+                              486,
+                              152
+                         ],
+                         361
+                    ]
+               ]
+          },
+          {
+               "name": "Japan",
+               "starsClothes": 5,
+               "starsFood": 5,
+               "starsTourism": 5,
+               "cost": 887,
+               "coordinates": [
+                    826,
+                    149
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              794,
+                              152
+                         ],
+                         462
+                    ],
+                    [
+                         [
+                              829,
+                              335
+                         ],
+                         731
+                    ],
+                    [
+                         [
+                              692,
+                              75
+                         ],
+                         433
+                    ]
+               ]
+          },
+          {
+               "name": "South Korea",
+               "starsClothes": 5,
+               "starsFood": 4,
+               "starsTourism": 5,
+               "cost": 864,
+               "coordinates": [
+                    794,
+                    152
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              512,
+                              165
+                         ],
+                         800
+                    ],
+                    [
+                         [
+                              826,
+                              149
+                         ],
+                         433
+                    ],
+                    [
+                         [
+                              692,
+                              75
+                         ],
+                         648
+                    ],
+                    [
+                         [
+                              829,
+                              335
+                         ],
+                         754
+                    ]
+               ]
+          },
+          {
+               "name": "United Kingdom",
+               "starsClothes": 4,
+               "starsFood": 3,
+               "starsTourism": 4,
+               "cost": 734,
+               "coordinates": [
+                    450,
+                    122
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              197,
+                              89
+                         ],
+                         730
+                    ],
+                    [
+                         [
+                              444,
+                              160
+                         ],
+                         320
+                    ],
+                    [
+                         [
+                              692,
+                              75
+                         ],
+                         640
+                    ],
+                    [
+                         [
+                              459,
+                              140
+                         ],
+                         354
+                    ],
+                    [
+                         [
+                              478,
+                              130
+                         ],
+                         410
+                    ]
+               ]
+          },
+          {
+               "name": "Italy",
+               "starsClothes": 5,
+               "starsFood": 5,
+               "starsTourism": 4,
+               "cost": 762,
+               "coordinates": [
+                    486,
+                    152
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              313,
+                              290
+                         ],
+                         865
+                    ],
+                    [
+                         [
+                              444,
+                              160
+                         ],
+                         374
+                    ],
+                    [
+                         [
+                              459,
+                              140
+                         ],
+                         324
+                    ],
+                    [
+                         [
+                              478,
+                              130
+                         ],
+                         430
+                    ],
+                    [
+                         [
+                              512,
+                              165
+                         ],
+                         260
+                    ]
+               ]
+          },
+          {
+               "name": "Germany",
+               "starsClothes": 3,
+               "starsFood": 5,
+               "starsTourism": 4,
+               "cost": 768,
+               "coordinates": [
+                    478,
+                    130
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              450,
+                              122
+                         ],
+                         312
+                    ],
+                    [
+                         [
+                              459,
+                              140
+                         ],
+                         400
+                    ],
+                    [
+                         [
+                              486,
+                              152
+                         ],
+                         420
+                    ],
+                    [
+                         [
+                              692,
+                              75
+                         ],
+                         455
+                    ],
+                    [
+                         [
+                              512,
+                              165
+                         ],
+                         377
+                    ]
+               ]
+          },
+          {
+               "name": "Australia",
+               "starsClothes": 3,
+               "starsFood": 5,
+               "starsTourism": 4,
+               "cost": 946,
+               "coordinates": [
+                    829,
+                    335
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              512,
+                              165
+                         ],
+                         734
+                    ],
+                    [
+                         [
+                              794,
+                              152
+                         ],
+                         744
+                    ],
+                    [
+                         [
+                              826,
+                              149
+                         ],
+                         722
+                    ]
+               ]
+          },
+          {
+               "name": "Peru",
+               "starsClothes": 2,
+               "starsFood": 2,
+               "starsTourism": 2,
+               "cost": 243,
+               "coordinates": [
+                    239,
+                    292
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              168,
+                              200
+                         ],
+                         140
+                    ],
+                    [
+                         [
+                              277,
+                              350
+                         ],
+                         180
+                    ],
+                    [
+                         [
+                              313,
+                              290
+                         ],
+                         188
+                    ]
+               ]
+          },
+          {
+               "name": "Greece",
+               "starsClothes": 4,
+               "starsFood": 3,
+               "starsTourism": 4,
+               "cost": 868,
+               "coordinates": [
+                    512,
+                    165
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              692,
+                              75
+                         ],
+                         530
+                    ],
+                    [
+                         [
+                              829,
+                              335
+                         ],
+                         700
+                    ],
+                    [
+                         [
+                              478,
+                              130
+                         ],
+                         431
+                    ],
+                    [
+                         [
+                              486,
+                              152
+                         ],
+                         280
+                    ],
+                    [
+                         [
+                              794,
+                              152
+                         ],
+                         734
+                    ]
+               ]
+          },
+          {
+               "name": "Canada",
+               "starsClothes": 5,
+               "starsFood": 4,
+               "starsTourism": 5,
+               "cost": 789,
+               "coordinates": [
+                    197,
+                    89
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              168,
+                              200
+                         ],
+                         760
+                    ],
+                    [
+                         [
+                              313,
+                              290
+                         ],
+                         631
+                    ],
+                    [
+                         [
+                              444,
+                              160
+                         ],
+                         688
+                    ],
+                    [
+                         [
+                              450,
+                              122
+                         ],
+                         724
+                    ]
+               ]
+          },
+          {
+               "name": "Russia",
+               "starsClothes": 3,
+               "starsFood": 3,
+               "starsTourism": 4,
+               "cost": 888,
+               "coordinates": [
+                    692,
+                    75
+               ],
+               "adjacencies": [
+                    [
+                         [
+                              450,
+                              122
+                         ],
+                         631
+                    ],
+                    [
+                         [
+                              478,
+                              130
+                         ],
+                         460
+                    ],
+                    [
+                         [
+                              512,
+                              165
+                         ],
+                         546
+                    ],
+                    [
+                         [
+                              794,
+                              152
+                         ],
+                         600
+                    ],
+                    [
+                         [
+                              826,
+                              149
+                         ],
+                         450
+                    ]
+               ]
+          }
+     ]
+}

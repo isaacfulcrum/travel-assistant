@@ -1,10 +1,10 @@
 {
      "Users": {
           "Isaac": {
-               "budget": 1600,
-               "food": 4,
+               "budget": 1000,
+               "food": 2,
                "places": 5,
-               "clothes": 2
+               "clothes": 1
           },
           "Isai": {
                "budget": 800,
