@@ -319,7 +319,8 @@ class mainWindow(QMainWindow):
             auxGraph_sort.append((node1,node2))
         auxGraph_sort.reverse()
         auxGraph_sort = [(n1, n2) for n2, n1 in auxGraph_sort]
-
+        path = []
+        auxStr = ""
         for vertice, otherVertice in auxGraph_sort:
             self.scene.addEllipse(vertice[0], vertice[1], 6, 6, self.pen)
             self.scene.addEllipse(otherVertice[0], otherVertice[1], 6, 6, self.pen)
@@ -332,7 +333,8 @@ class mainWindow(QMainWindow):
                 # conditional that writes the first country of the graph
                 if first and elem["coordinates"][0] == vertice[0] and elem["coordinates"][1] == vertice[1]:
                     aux = str(elem["name"]) + ':'
-                    self.ui.listWidget.addItem(aux)
+                    auxStr = aux
+                    path.append(aux)
                     first = False
 
                 elif otherVertice[0] == elem["coordinates"][0] and otherVertice[1] == elem["coordinates"][1]:
@@ -343,10 +345,16 @@ class mainWindow(QMainWindow):
                                 if otherVertice[0] == adj[0][0] and otherVertice[1] == adj[0][1]:
                                     aux = str('    ' + elem["name"]) + '  -  $' + str(adj[1])
                                     totalCost += adj[1]
-                                    self.ui.listWidget.addItem(aux)
+                                    path.append(aux)
                                     break
                             break
         aux = "Total cost of the travel: " + str(totalCost)
+        for dataCnt in range(len(path)):
+            if path[dataCnt] == auxStr:
+                self.ui.listWidget.addItem(path.pop(dataCnt))
+                break
+        for value in path:
+            self.ui.listWidget.addItem(value)
         self.ui.listWidget.addItem(aux)
     # printGraph
 
