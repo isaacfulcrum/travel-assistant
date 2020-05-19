@@ -33,7 +33,7 @@ two ways of traveling:
 ![alt text](https://raw.githubusercontent.com/isaacfulcrum/Travel_Assistant/master/assets/instructions/menu.png "Menu")
 
 
-First mode (Personalized) is pretty straight forward, you select a departure 
+First mode (Personalized) is pretty straightforward, you select a departure 
 and an arrival country. Then you click start and the app will return the 
 shortest path (the one that costs less) from both your countries.
 
