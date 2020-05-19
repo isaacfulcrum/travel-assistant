@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="Images">
+    <file>assets/table.png</file>
     <file>assets/city_map.jpg</file>
     <file>assets/travelStamps.jpg</file>
     <file>assets/star.png</file>

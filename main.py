@@ -35,7 +35,6 @@ class mainWindow(QMainWindow):
         self.ui.backbutton_1.clicked.connect(self.changePage)
         self.ui.backbutton_2.clicked.connect(self.changePage)
         self.ui.backbutton_3.clicked.connect(self.changePage)
-        self.ui.backbutton_4.clicked.connect(self.changePage)
 
         # Manage stars
         self.ui.clothes_sb.valueChanged.connect(self.manageStars)
@@ -56,7 +55,7 @@ class mainWindow(QMainWindow):
         self.ui.start_button.clicked.connect(self.manageMap)
         self.ui.cancel_button.clicked.connect(self.manageMap)
         self.ui.btnResetMap.clicked.connect(self.resetMap)
-        self.ui.countries_button.clicked.connect(self.changePage)
+        self.ui.countries_button.clicked.connect(self.showCountries)
         self.ui.departure.setCurrentIndex(-1)
         self.ui.arrival.setCurrentIndex(-1)
 
@@ -73,14 +72,13 @@ class mainWindow(QMainWindow):
 
     # loadData
 
-    # def showCountries(self):
-    #
-    #     pix = QPixmap(":/Icons/assets/placeIcon.png")
-    #     message = QMessageBox(self)
-    #     message.setWindowTitle("Country information")
-    #     message.setIconPixmap(pix)
-    #     message.exec_()
-    #     message.set
+    def showCountries(self):
+
+         pix = QPixmap(":/Images/assets/table.png")
+         message = QMessageBox(self)
+         message.setWindowTitle("Country information")
+         message.setIconPixmap(pix)
+         message.exec_()
 
     def saveData(self):
         self.database["Users"] = self.users
@@ -110,10 +108,6 @@ class mainWindow(QMainWindow):
             self.resetMap()
             self.ui.arrival.setEnabled(True)
             self.ui.views.setCurrentIndex(1)
-        elif self.sender().objectName() == "backbutton_4":
-            self.ui.views.setCurrentIndex(3)
-        elif self.sender().objectName() == "countries_button":
-            self.ui.views.setCurrentIndex(4)
 
     # changePage
 

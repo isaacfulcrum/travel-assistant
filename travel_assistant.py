@@ -690,29 +690,6 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.frame_2, 0, 1, 1, 1)
 
         self.views.addWidget(self.worldTour)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.gridLayout_15 = QGridLayout(self.page_2)
-        self.gridLayout_15.setObjectName(u"gridLayout_15")
-        self.backbutton_4 = QPushButton(self.page_2)
-        self.backbutton_4.setObjectName(u"backbutton_4")
-        self.backbutton_4.setMinimumSize(QSize(0, 40))
-        self.backbutton_4.setMaximumSize(QSize(100, 16777215))
-        self.backbutton_4.setFont(font1)
-        self.backbutton_4.setCursor(QCursor(Qt.PointingHandCursor))
-        self.backbutton_4.setStyleSheet(u"border-image: None;\n"
-"background-color: rgb(30, 177, 167);")
-        self.backbutton_4.setIcon(icon1)
-
-        self.gridLayout_15.addWidget(self.backbutton_4, 0, 0, 1, 1)
-
-        self.label_2 = QLabel(self.page_2)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setPixmap(QPixmap(u"assets/xd(2).png"))
-
-        self.gridLayout_15.addWidget(self.label_2, 1, 0, 1, 1)
-
-        self.views.addWidget(self.page_2)
 
         self.gridLayout.addWidget(self.views, 0, 0, 1, 1)
 
@@ -727,7 +704,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.views.setCurrentIndex(4)
+        self.views.setCurrentIndex(3)
         self.travel_button.setDefault(True)
 
 
@@ -787,7 +764,5 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
         self.backbutton_3.setText(QCoreApplication.translate("MainWindow", u"Back", None))
         self.countries_button.setText(QCoreApplication.translate("MainWindow", u"Countries", None))
-        self.backbutton_4.setText(QCoreApplication.translate("MainWindow", u"Back", None))
-        self.label_2.setText("")
     # retranslateUi
 
