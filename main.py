@@ -55,6 +55,7 @@ class mainWindow(QMainWindow):
         self.ui.start_button.clicked.connect(self.manageMap)
         self.ui.cancel_button.clicked.connect(self.manageMap)
         self.ui.btnResetMap.clicked.connect(self.resetMap)
+        self.ui.countries_button.clicked.connect(self.showCountries)
         self.ui.departure.setCurrentIndex(-1)
         self.ui.arrival.setCurrentIndex(-1)
 
@@ -70,6 +71,13 @@ class mainWindow(QMainWindow):
             self.ui.arrival.addItem(country["name"])
 
     # loadData
+
+    def showCountries(self):
+        pix = QPixmap(":/Icons/assets/moneyIcon.png")
+        message = QMessageBox(self)
+        message.setWindowTitle("Country information")
+        message.setIconPixmap(pix)
+        message.exec_()
 
     def saveData(self):
         self.database["Users"] = self.users
@@ -87,15 +95,17 @@ class mainWindow(QMainWindow):
             self.ui.arrival.setDisabled(True)
             self.resetMap()
             self.ui.views.setCurrentIndex(3)
-        elif self.sender().objectName() == "adventure_button":
-            self.ui.views.setCurrentIndex(3)
         elif self.sender().objectName() == "personalized_button":
+            self.ui.views.setCurrentIndex(3)
+        elif self.sender().objectName() == "adventure_button":
             self.ui.views.setCurrentIndex(2)
         elif self.sender().objectName() == "backbutton_1":
             self.ui.views.setCurrentIndex(0)
         elif self.sender().objectName() == "backbutton_2":
             self.ui.views.setCurrentIndex(1)
         elif self.sender().objectName() == "backbutton_3":
+            self.resetMap()
+            self.ui.arrival.setEnabled(True)
             self.ui.views.setCurrentIndex(1)
 
     # changePage
@@ -106,10 +116,9 @@ class mainWindow(QMainWindow):
             self.drawMap()
             self.showDijkstra()
         else:
-            self.scene.clear()
-            self.drawMap()
-            self.ui.departure.setCurrentIndex(-1)
-            self.ui.arrival.setCurrentIndex(-1)
+            self.resetMap()
+
+    # manageMap
 
     def initStars(self):
         for i in range(1, 4):
@@ -226,6 +235,8 @@ class mainWindow(QMainWindow):
         finalNode = ()
         if self.ui.arrival.isEnabled() == False:
             userBudget = int(self.ui.budgetText.text())
+        else:
+            userBudget = 0
 
         for country in self.countries:
             if country["name"] == arrivalName:
@@ -250,7 +261,6 @@ class mainWindow(QMainWindow):
                 auxNode = ordenedList.pop(0)
                 for element in self.graphOfCountries[auxNode[0]]:
                     nodeWithDistance = ((element[0][0], element[0][1]), element[1])
-                    # print(nodeWithDistance)
                     destinyDistance = distancesArray.get(nodeWithDistance[0])
                     currentDistance = nodeWithDistance[1] + auxNode[1]
 
@@ -262,6 +272,7 @@ class mainWindow(QMainWindow):
                         ordenedList = [(b, a) for a, b in ordenedList]
                         ordenedList.sort()
                         ordenedList = [(a, b) for b, a in ordenedList]
+
                     if nodeWithDistance[0] == finalNode:
                         flag = False
                         break
@@ -271,7 +282,7 @@ class mainWindow(QMainWindow):
                 for i in range(len(distancesArray_Sort)):
                     if (i+1) != len(distancesArray_Sort):
                         if userBudget >= distancesArray_Sort[i][1] \
-                                and userBudget <= distancesArray_Sort[i+1][1]:
+                                and userBudget <= distancesArray_Sort[i + 1][1]:
                             finalNode = distancesArray_Sort[i][0]
                             break
                     else:

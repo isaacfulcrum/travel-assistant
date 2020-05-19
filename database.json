@@ -1,7 +1,7 @@
 {
      "Users": {
           "Isaac": {
-               "budget": 2,
+               "budget": 20000,
                "food": 1,
                "places": 1,
                "clothes": 1
@@ -217,7 +217,7 @@
                "clothes": 1
           },
           "1": {
-               "budget": 1,
+               "budget": 20000,
                "food": 1,
                "places": 1,
                "clothes": 1

@@ -132,8 +132,8 @@ class Ui_MainWindow(object):
 
         self.frame_6 = QFrame(self.frame_5)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setMinimumSize(QSize(660, 260))
-        self.frame_6.setMaximumSize(QSize(700, 300))
+        self.frame_6.setMinimumSize(QSize(660, 300))
+        self.frame_6.setMaximumSize(QSize(700, 400))
         self.frame_6.setStyleSheet(u"border-image:None;\n"
 "background-color: rgb(0, 0, 0);")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
@@ -170,29 +170,29 @@ class Ui_MainWindow(object):
 
         self.gridLayout_14.addItem(self.horizontalSpacer_20, 4, 0, 1, 1)
 
-        self.adventure_button = QPushButton(self.frame_5)
-        self.adventure_button.setObjectName(u"adventure_button")
-        self.adventure_button.setMinimumSize(QSize(200, 100))
-        self.adventure_button.setFont(font1)
-        self.adventure_button.setCursor(QCursor(Qt.PointingHandCursor))
-        self.adventure_button.setStyleSheet(u"border-image: None;\n"
-"background-color: rgb(127, 7, 179);")
-
-        self.gridLayout_14.addWidget(self.adventure_button, 4, 1, 1, 1)
-
-        self.horizontalSpacer_19 = QSpacerItem(245, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_14.addItem(self.horizontalSpacer_19, 4, 2, 1, 1)
-
         self.personalized_button = QPushButton(self.frame_5)
         self.personalized_button.setObjectName(u"personalized_button")
         self.personalized_button.setMinimumSize(QSize(200, 100))
         self.personalized_button.setFont(font1)
         self.personalized_button.setCursor(QCursor(Qt.PointingHandCursor))
-        self.personalized_button.setStyleSheet(u"background-color: rgb(113, 255, 62);\n"
+        self.personalized_button.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(127, 7, 179);")
+
+        self.gridLayout_14.addWidget(self.personalized_button, 4, 1, 1, 1)
+
+        self.horizontalSpacer_19 = QSpacerItem(245, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_14.addItem(self.horizontalSpacer_19, 4, 2, 1, 1)
+
+        self.adventure_button = QPushButton(self.frame_5)
+        self.adventure_button.setObjectName(u"adventure_button")
+        self.adventure_button.setMinimumSize(QSize(200, 100))
+        self.adventure_button.setFont(font1)
+        self.adventure_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.adventure_button.setStyleSheet(u"background-color: rgb(113, 255, 62);\n"
 "border-image: None;")
 
-        self.gridLayout_14.addWidget(self.personalized_button, 4, 3, 1, 1)
+        self.gridLayout_14.addWidget(self.adventure_button, 4, 3, 1, 1)
 
         self.horizontalSpacer_21 = QSpacerItem(134, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -551,18 +551,6 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.gridLayout_6 = QGridLayout(self.frame_2)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.backbutton_3 = QPushButton(self.frame_2)
-        self.backbutton_3.setObjectName(u"backbutton_3")
-        self.backbutton_3.setMinimumSize(QSize(0, 40))
-        self.backbutton_3.setMaximumSize(QSize(100, 16777215))
-        self.backbutton_3.setFont(font1)
-        self.backbutton_3.setCursor(QCursor(Qt.PointingHandCursor))
-        self.backbutton_3.setStyleSheet(u"border-image: None;\n"
-"background-color: rgb(30, 177, 167);")
-        self.backbutton_3.setIcon(icon1)
-
-        self.gridLayout_6.addWidget(self.backbutton_3, 0, 0, 1, 2)
-
         self.btnResetMap = QPushButton(self.frame_2)
         self.btnResetMap.setObjectName(u"btnResetMap")
         font3 = QFont()
@@ -574,7 +562,15 @@ class Ui_MainWindow(object):
         self.btnResetMap.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnResetMap.setStyleSheet(u"background-color: rgb(107, 48, 255);")
 
-        self.gridLayout_6.addWidget(self.btnResetMap, 0, 4, 1, 1)
+        self.gridLayout_6.addWidget(self.btnResetMap, 0, 5, 1, 1)
+
+        self.listWidget = QListWidget(self.frame_2)
+        self.listWidget.setObjectName(u"listWidget")
+        self.listWidget.setMinimumSize(QSize(0, 0))
+        self.listWidget.setMaximumSize(QSize(275, 16777215))
+        self.listWidget.setStyleSheet(u"background-color:  None;")
+
+        self.gridLayout_6.addWidget(self.listWidget, 1, 0, 2, 1)
 
         self.gvWorldMap = QGraphicsView(self.frame_2)
         self.gvWorldMap.setObjectName(u"gvWorldMap")
@@ -587,7 +583,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.gridLayout_6.addWidget(self.gvWorldMap, 1, 1, 1, 4)
+        self.gridLayout_6.addWidget(self.gvWorldMap, 1, 1, 1, 5)
 
         self.groupBox = QGroupBox(self.frame_2)
         self.groupBox.setObjectName(u"groupBox")
@@ -647,11 +643,7 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.arrival, 1, 1, 1, 1)
 
 
-        self.gridLayout_6.addWidget(self.groupBox, 2, 1, 1, 4)
-
-        self.horizontalSpacer_12 = QSpacerItem(271, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_6.addItem(self.horizontalSpacer_12, 0, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.groupBox, 2, 1, 1, 5)
 
         self.label = QLabel(self.frame_2)
         self.label.setObjectName(u"label")
@@ -670,13 +662,29 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label, 0, 2, 1, 1)
 
-        self.listWidget = QListWidget(self.frame_2)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setMinimumSize(QSize(0, 0))
-        self.listWidget.setMaximumSize(QSize(275, 16777215))
-        self.listWidget.setStyleSheet(u"background-color:  None;")
+        self.horizontalSpacer_12 = QSpacerItem(271, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_6.addWidget(self.listWidget, 1, 0, 2, 1)
+        self.gridLayout_6.addItem(self.horizontalSpacer_12, 0, 3, 1, 1)
+
+        self.backbutton_3 = QPushButton(self.frame_2)
+        self.backbutton_3.setObjectName(u"backbutton_3")
+        self.backbutton_3.setMinimumSize(QSize(0, 40))
+        self.backbutton_3.setMaximumSize(QSize(100, 16777215))
+        self.backbutton_3.setFont(font1)
+        self.backbutton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.backbutton_3.setStyleSheet(u"border-image: None;\n"
+"background-color: rgb(30, 177, 167);")
+        self.backbutton_3.setIcon(icon1)
+
+        self.gridLayout_6.addWidget(self.backbutton_3, 0, 0, 1, 2)
+
+        self.countries_button = QPushButton(self.frame_2)
+        self.countries_button.setObjectName(u"countries_button")
+        self.countries_button.setFont(font3)
+        self.countries_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.countries_button.setStyleSheet(u"background-color: rgb(185, 44, 203);")
+
+        self.gridLayout_6.addWidget(self.countries_button, 0, 4, 1, 1)
 
 
         self.gridLayout_4.addWidget(self.frame_2, 0, 1, 1, 1)
@@ -711,13 +719,13 @@ class Ui_MainWindow(object):
 "\n"
 " We are so excited to help you choose the best option for your new adventure, but first you need to make the decision of how you wanna travel. \n"
 "\n"
-"  ADVENTURE TRIP\n"
+"  PERSONALIZED TRIP\n"
 " If you travel with this option, you'll be able to choose a departure and arrival place. We'll make sure that you visit different countries and cultures on your way to your destination, while charging as little as possible :) \n"
 "\n"
-" PERSONALIZED TRIP \n"
-" Coming soon...", None))
-        self.adventure_button.setText(QCoreApplication.translate("MainWindow", u"ADVENTURE TRIP", None))
+" ADVENTURE TRIP \n"
+" With this option you'll be able to introduce your departure country and how much you want to spend in your trip, we'll give you a list of countries you can visit with said budget :)", None))
         self.personalized_button.setText(QCoreApplication.translate("MainWindow", u"PERSONALIZED TRIP", None))
+        self.adventure_button.setText(QCoreApplication.translate("MainWindow", u"ADVENTURE TRIP", None))
         self.backbutton_2.setText(QCoreApplication.translate("MainWindow", u"Back", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"First time traveling with us?", None))
         self.label_6.setText("")
@@ -747,7 +755,6 @@ class Ui_MainWindow(object):
         self.label_14.setText("")
         self.star3_4.setText("")
         self.star3_5.setText("")
-        self.backbutton_3.setText(QCoreApplication.translate("MainWindow", u"Back", None))
         self.btnResetMap.setText(QCoreApplication.translate("MainWindow", u"Reset Map", None))
         self.groupBox.setTitle("")
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Departure:", None))
@@ -755,5 +762,7 @@ class Ui_MainWindow(object):
         self.cancel_button.setText(QCoreApplication.translate("MainWindow", u"CANCEL", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Arrival:", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"WORLD TOUR", None))
+        self.backbutton_3.setText(QCoreApplication.translate("MainWindow", u"Back", None))
+        self.countries_button.setText(QCoreApplication.translate("MainWindow", u"Countries", None))
     # retranslateUi
 

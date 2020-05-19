@@ -241,13 +241,13 @@ background-color: rgb(30, 177, 167);</string>
              <property name="minimumSize">
               <size>
                <width>660</width>
-               <height>260</height>
+               <height>300</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
                <width>700</width>
-               <height>300</height>
+               <height>400</height>
               </size>
              </property>
              <property name="styleSheet">
@@ -280,11 +280,11 @@ background-color: rgb(255, 255, 255);</string>
 
  We are so excited to help you choose the best option for your new adventure, but first you need to make the decision of how you wanna travel. 
 
-  ADVENTURE TRIP
+  PERSONALIZED TRIP
  If you travel with this option, you'll be able to choose a departure and arrival place. We'll make sure that you visit different countries and cultures on your way to your destination, while charging as little as possible :) 
 
- PERSONALIZED TRIP 
- Coming soon...</string>
+ ADVENTURE TRIP 
+ With this option you'll be able to introduce your departure country and how much you want to spend in your trip, we'll give you a list of countries you can visit with said budget :)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -337,7 +337,7 @@ background-color: rgb(255, 255, 255);</string>
             </spacer>
            </item>
            <item row="4" column="1">
-            <widget class="QPushButton" name="adventure_button">
+            <widget class="QPushButton" name="personalized_button">
              <property name="minimumSize">
               <size>
                <width>200</width>
@@ -360,7 +360,7 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(127, 7, 179);</string>
              </property>
              <property name="text">
-              <string>ADVENTURE TRIP</string>
+              <string>PERSONALIZED TRIP</string>
              </property>
             </widget>
            </item>
@@ -378,7 +378,7 @@ background-color: rgb(127, 7, 179);</string>
             </spacer>
            </item>
            <item row="4" column="3">
-            <widget class="QPushButton" name="personalized_button">
+            <widget class="QPushButton" name="adventure_button">
              <property name="minimumSize">
               <size>
                <width>200</width>
@@ -401,7 +401,7 @@ background-color: rgb(127, 7, 179);</string>
 border-image: None;</string>
              </property>
              <property name="text">
-              <string>PERSONALIZED TRIP</string>
+              <string>ADVENTURE TRIP</string>
              </property>
             </widget>
            </item>
@@ -1221,45 +1221,7 @@ color: rgb(0, 0, 0)</string>
            <enum>QFrame::Raised</enum>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="0" colspan="2">
-            <widget class="QPushButton" name="backbutton_3">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>News706 BT</family>
-               <pointsize>9</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border-image: None;
-background-color: rgb(30, 177, 167);</string>
-             </property>
-             <property name="text">
-              <string>Back</string>
-             </property>
-             <property name="icon">
-              <iconset resource="travel_assistant_assets.qrc">
-               <normaloff>:/Icons/assets/backIcon.png</normaloff>:/Icons/assets/backIcon.png</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="4">
+           <item row="0" column="5">
             <widget class="QPushButton" name="btnResetMap">
              <property name="font">
               <font>
@@ -1280,7 +1242,26 @@ background-color: rgb(30, 177, 167);</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1" colspan="4">
+           <item row="1" column="0" rowspan="2">
+            <widget class="QListWidget" name="listWidget">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>275</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:  None;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="5">
             <widget class="QGraphicsView" name="gvWorldMap">
              <property name="minimumSize">
               <size>
@@ -1304,7 +1285,7 @@ background-color: rgb(30, 177, 167);</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="1" colspan="4">
+           <item row="2" column="1" colspan="5">
             <widget class="QGroupBox" name="groupBox">
              <property name="minimumSize">
               <size>
@@ -1462,19 +1443,6 @@ background-color: rgb(30, 177, 167);</string>
              </layout>
             </widget>
            </item>
-           <item row="0" column="3">
-            <spacer name="horizontalSpacer_12">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>271</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="0" column="2">
             <widget class="QLabel" name="label">
              <property name="font">
@@ -1500,22 +1468,75 @@ background-color: rgb(30, 177, 167);</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="0" rowspan="2">
-            <widget class="QListWidget" name="listWidget">
+           <item row="0" column="3">
+            <spacer name="horizontalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>271</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QPushButton" name="backbutton_3">
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>0</height>
+               <height>40</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>275</width>
+               <width>100</width>
                <height>16777215</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>News706 BT</family>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
              <property name="styleSheet">
-              <string notr="true">background-color:  None;</string>
+              <string notr="true">border-image: None;
+background-color: rgb(30, 177, 167);</string>
+             </property>
+             <property name="text">
+              <string>Back</string>
+             </property>
+             <property name="icon">
+              <iconset resource="travel_assistant_assets.qrc">
+               <normaloff>:/Icons/assets/backIcon.png</normaloff>:/Icons/assets/backIcon.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="countries_button">
+             <property name="font">
+              <font>
+               <family>News706 BT</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(185, 44, 203);</string>
+             </property>
+             <property name="text">
+              <string>Countries</string>
              </property>
             </widget>
            </item>
